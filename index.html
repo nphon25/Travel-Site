@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Travel Site</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-
-  <link rel="stylesheet" href="styles/index.css" />
+  <title>Travelspiria</title>
+  <!-- Material Icons and Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Trebuchet+MS&display=swap" rel="stylesheet">
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles/index.css">
 </head>
-
 <body>
-<header data-include="components/Dheader.html"></header>
+
+  <!-- Header -->
+  <header data-include="components/Dheader.html"></header>
 
   <!-- Hero Carousel -->
   <section class="hero-carousel">
@@ -66,9 +70,9 @@
   <!-- Tagline -->
   <section class="section green-bg">
     <div class="container center-align">
-      <h2 class="section-title">One Platform. Multiple Modes.</h2>
+      <h2 class="section-title">  Travelspiria. One Platform. Multiple Modes.</h2>
       <h5 class="flow-text">
-        Travel personalized to how you explore—solo, group, family or business.
+       Travel personalized to how you explore—solo, group, family or business.
       </h5>
     </div>
   </section>
@@ -158,137 +162,86 @@
     </div>
   </section>
 
-  <!-- Personalized Modes -->
-  <section class="section bento-grid">
-    <div class="container">
-      <h5 class="section-title">Personalized Travel Modes</h5>
-      <div class="row">
-        <div class="col s12 l6">
-          <a href="#" class="card bento-tile large-tile hoverable waves-effect">
-            <div class="card-image">
-              <img
-                src="graphics/imgs/journey.jpg"
-                alt="Featured Travel"
-                class="materialboxed"
-              />
-              <span class="card-title">Your Journey, Your Way</span>
-            </div>
-          </a>
+  <!-- bento grid -->
+<section class="section bento-grid">
+  <div class="container">
+    <h5 class="section-title">Personalized Travel Modes</h5>
+    <div class="row">
+      <div class="col s12 l6">
+        <a href="#" class="card hoverable waves-effect">
+          <div class="card-image">
+            <img
+              src="graphics/imgs/journey.jpg"
+              alt="Featured Travel"
+              class="materialboxed responsive-img"
+            />
+            <span class="card-title white-text">Your Journey, Your Way</span>
+          </div>
           <div class="card-content">
             <p>
               One platform. Multiple modes. Travel personalized to how you
               explore.
             </p>
           </div>
-        </div>
-        <div class="col s12 l6">
-          <div class="row">
-            <div class="col s6">
-              <a href="#" class="card bento-tile small-tile hoverable waves-effect">
-                <div class="card-image">
-                  <img
-                    src="graphics/imgs/solo.jpg"
-                    alt="Solo Travel"
-                    class="materialboxed"
-                  />
-                  <span class="card-title">Solo</span>
-                </div>
-              </a>
-            </div>
-            <div class="col s6">
-              <a href="#" class="card bento-tile small-tile hoverable waves-effect">
-                <div class="card-image">
-                  <img
-                    src="graphics/imgs/group.jpg"
-                    alt="Group Travel"
-                    class="materialboxed"
-                  />
-                  <span class="card-title">Group</span>
-                </div>
-              </a>
-            </div>
-            <div class="col s6">
-              <a href="#" class="card bento-tile small-tile hoverable waves-effect">
-                <div class="card-image">
-                  <img
-                    src="graphics/imgs/family.jpg"
-                    alt="Family Travel"
-                    class="materialboxed"
-                  />
-                  <span class="card-title">Family</span>
-                </div>
-              </a>
-            </div>
-            <div class="col s6">
-              <a href="#" class="card bento-tile small-tile hoverable waves-effect">
-                <div class="card-image">
-                  <img
-                    src="graphics/imgs/business.jpg"
-                    alt="Business Travel"
-                    class="materialboxed"
-                  />
-                  <span class="card-title">Business</span>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
+        </a>
       </div>
-    </div>
-  </section>
-
-  <!-- Local Updates -->
-<section class="section white-bg">
-  <div class="container">
-    <h4 class="section-title">Local Updates</h4>
-    <div class="row">
-      <!-- Update Card 1 -->
-      <div class="col s12 m6 l4">
-        <div class="card hoverable">
-          <div class="card-content">
-            <span class="card-title green-text text-darken-2">Midnight Street Market</span>
-            <p>
-              Food trucks, live DJs, and artisan stalls light up the plaza tonight
-              from 8PM–2AM.
-            </p>
+      <div class="col s12 l6">
+        <div class="row">
+          <div class="col s6">
+            <a href="#" class="card hoverable waves-effect">
+              <div class="card-image">
+                <img
+                  src="graphics/imgs/solo.jpg"
+                  alt="Solo Travel"
+                  class="materialboxed responsive-img"
+                />
+                <span class="card-title white-text">Solo</span>
+              </div>
+            </a>
           </div>
-          <div class="card-action">
-            <a href="night-market.html" class="green-text text-darken-2">Learn More</a>
+          <div class="col s6">
+            <a href="#" class="card hoverable waves-effect">
+              <div class="card-image">
+                <img
+                  src="graphics/imgs/group.jpg"
+                  alt="Group Travel"
+                  class="materialboxed responsive-img"
+                />
+                <span class="card-title white-text">Group</span>
+              </div>
+            </a>
           </div>
-        </div>
-      </div>
-
-      <!-- local updates -->
-      <div class="col s12 m6 l4">
-        <div class="card hoverable">
-          <div class="card-content">
-            <span class="card-title green-text text-darken-2">Rooftop Cinema Club</span>
-            <p>Catch a classic film under the stars with gourmet popcorn. Starts at 9PM!</p>
+          <div class="col s6">
+            <a href="#" class="card hoverable waves-effect">
+              <div class="card-image">
+                <img
+                  src="graphics/imgs/family.jpg"
+                  alt="Family Travel"
+                  class="materialboxed responsive-img"
+                />
+                <span class="card-title white-text">Family</span>
+              </div>
+            </a>
           </div>
-          <div class="card-action">
-            <a href="rooftop-cinema.html" class="green-text text-darken-2">Learn More</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Update Card 3 -->
-      <div class="col s12 m6 l4">
-        <div class="card hoverable">
-          <div class="card-content">
-            <span class="card-title green-text text-darken-2">Sunset Kayaking Tour</span>
-            <p>
-              Paddle through glowing waters with storytelling. Limited spots—book
-              now!
-            </p>
-          </div>
-          <div class="card-action">
-            <a href="sunset-kayak.html" class="green-text text-darken-2">Learn More</a>
+          <div class="col s6">
+            <a href="#" class="card hoverable waves-effect">
+              <div class="card-image">
+                <img
+                  src="graphics/imgs/business.jpg"
+                  alt="Business Travel"
+                  class="materialboxed responsive-img"
+                />
+                <span class="card-title white-text">Business</span>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
 
   <!-- Top Destinations -->
 <section class="section dark-bg">
@@ -358,7 +311,7 @@
       <div class="col s12 m4">
         <div class="card hoverable">
           <div class="card-image">
-            <img src="graphics/shop/backpack.jpg" alt="Travel Backpack" class="materialboxed responsive-img">
+            <img src="graphics/imgs/business.jpg" alt="Travel Backpack" class="materialboxed responsive-img">
           </div>
           <div class="card-content">
             <h6>All-Terrain Backpack</h6>
@@ -369,7 +322,7 @@
       <div class="col s12 m4">
         <div class="card hoverable">
           <div class="card-image">
-            <img src="graphics/shop/packingcubes.jpg" alt="Packing Cubes" class="materialboxed responsive-img">
+            <img src="graphics/imgs/solo.jpg" alt="Packing Cubes" class="materialboxed responsive-img">
           </div>
           <div class="card-content">
             <h6>Packing Cube Set</h6>
@@ -380,7 +333,7 @@
       <div class="col s12 m4">
         <div class="card hoverable">
           <div class="card-image">
-            <img src="graphics/shop/travelkit.jpg" alt="Travel Kit" class="materialboxed responsive-img">
+            <img src="graphics/imgs/journey.jpg" alt="Travel Kit" class="materialboxed responsive-img">
           </div>
           <div class="card-content">
             <h6>Essential Travel Kit</h6>
@@ -406,8 +359,8 @@
       <div class="col s12 m6 l4">
         <div class="card hoverable">
           <div class="card-content">
-            <span class="card-title green-text text-darken-2">Jungkook J.</span>
-            <p>“This platform completely changed how I plan my trips. The recommendations are spot-on!”</p>
+            <span class="card-title green-text text-darken-2">Pablo G. </span>
+            <p>“This platform completely changed how I plan my trips. The recommendations are spot-on! Travelspiria speak to my soul " </p>
           </div>
         </div>
       </div>
@@ -416,7 +369,7 @@
       <div class="col s12 m6 l4">
         <div class="card hoverable">
           <div class="card-content">
-            <span class="card-title green-text text-darken-2">Morgan T.</span>
+            <span class="card-title green-text text-darken-2"> Aaron J.</span>
             <p>“The local updates are so helpful when I land in a new place—love the curated tips!”</p>
           </div>
         </div>
@@ -426,65 +379,101 @@
       <div class="col s12 m6 l4">
         <div class="card hoverable">
           <div class="card-content">
-            <span class="card-title green-text text-darken-2">Peter G.</span>
+            <span class="card-title green-text text-darken-2">Nam P.</span>
+            <p>"As a solo traveler, this is my go-to app for planning every adventure. T</p>
+          </div>
+        </div>
+      </div>
+      <!-- Review Card4 -->
+      <div class="col s12 m6 l4">
+        <div class="card hoverable">
+          <div class="card-content">
+            <span class="card-title green-text text-darken-2">Elijah M.</span>
             <p>“I’m obsessed with the shop gear—everything is functional *and* beautiful. Great find!”</p>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Footer -->
-<footer class="page-footer green darken-3">
-  <div class="container">
-    <div class="row">
-
-      <!-- Newsletter Signup Section -->
-      <div class="col l6 s12">
-        <div class="card white z-depth-1">
+  <!-- Review Card 5 -->
+      <div class="col s12 m6 l4">
+        <div class="card hoverable">
           <div class="card-content">
-            <span class="card-title green-text text-darken-3">Subscribe to Our Newsletter</span>
-            <p class="grey-text text-darken-2">Stay updated with the latest travel tips, deals, and local finds.</p>
-            <form action="#" method="POST" class="responsive-form" style="margin-top: 1rem;">
-              <div class="input-field">
-                <input id="email" type="email" name="EmailAddress" required>
-                <label for="email">Email Address</label>
-              </div>
-              <button class="btn green darken-3 waves-effect waves-light" type="submit">
-                Subscribe
-              </button>
-            </form>
+            <span class="card-title green-text text-darken-2"> Latori M. </span>
+            <p>"From toddler-friendly stops to emergency snacks—it thinks like a parent. BEST APP  EVER ”</p>
+          </div>
+        </div>
+      </div>
+      <!-- Review Card 6 -->
+      <div class="col s12 m6 l4">
+        <div class="card hoverable">
+          <div class="card-content">
+            <span class="card-title green-text text-darken-2"> Justin M. </span>
+            <p>“Finally an app that handles group chaos like a pro.”</p>
           </div>
         </div>
       </div>
 
-      <!-- Links Section -->
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Quick Links</h5>
-        <ul>
-          <li><a class="grey-text text-lighten-3" href="#!">Explore</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Shop</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Profile</a></li>
-        </ul>
-      </div>
 
     </div>
   </div>
+</section>
 
-  <!-- Copyright -->
-  <div class="footer-copyright green-bg darken-4">
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="page-footer green">
     <div class="container">
-      © 2025 Your Company
-      <a class="grey-text text-lighten-4 right" href="#!">More Info</a>
-    </div>
-  </div>
-</footer>
+      <div class="row">
+        <!-- About & Social -->
+        <div class="col s12 m4">
+          <h5 class="white-text">Travelspiria</h5>
+          <p class="grey-text text-lighten-4">One platform. Multiple modes. Plan, explore, and personalize every journey.</p>
+          <div>
+            <a href="#" class="white-text"><i class="fab fa-facebook fa-lg left"></i></a>
+            <a href="#" class="white-text"><i class="fab fa-instagram fa-lg left"></i></a>
+            <a href="#" class="white-text"><i class="fas fa-envelope fa-lg left"></i></a>
+          </div>
+        </div>
 
-<footer data-include="components/Dfooter.html"></footer>
+        <!-- Quick Links -->
+        <div class="col s12 m4">
+          <h5 class="white-text">Explore</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#reviews">Traveler Reviews</a></li>
+            <li><a class="grey-text text-lighten-3" href="#shop-showcase">Travel Shop</a></li>
+            <li><a class="grey-text text-lighten-3" href="destinations.html">Top Destinations</a></li>
+            <li><a class="grey-text text-lighten-3" href="#">Local Updates</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="col s12 m4">
+          <h5 class="white-text">Stay in the Loop</h5>
+          <p class="grey-text text-lighten-4">Get curated travel tips, updates, and exclusive gear offers.</p>
+          <form action="#" method="POST">
+            <div class="input-field">
+              <input id="email" type="email" class="validate white-text" required>
+              <label for="email" class="white-text">Email</label>
+            </div>
+            <button class="btn green lighten-1 waves-effect waves-light" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright green darken-4">
+      <div class="container">
+        © 2025 Travelspiria — All rights reserved.
+        <a class="grey-text text-lighten-4 right" href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <footer data-include="components/Dfooter.html"></footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="scripts/index.js"></script>
+  
 </body>
 </html>
