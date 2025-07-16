@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>title</title>
+    <title>Sicily</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles/destinations.css">
@@ -12,29 +12,33 @@
 
 <body>
     <header>
-        <h1>Index Page</h1>
+        <h1>Sicily</h1>
         <div data-include="components/Dheader.html"></div>
     </header>
 
 
     <hr>
 
-    <div> 
+    
         <!--Image and description of destination-->
-        <img src="destination-images/sicily-banner.jpg" class="responsive-img">
-        <p>Sicily is the largest island in the Mediterranean Sea and part of southern Italy, 
+       <img src="destination-images/sicily-banner.jpg" class="responsive-img banner">
+
+    <div class="container">
+        <p>
+            Sicily is the largest island in the Mediterranean Sea and part of southern Italy, 
             located just off the “toe” of the Italian boot. 
             It has a population of about 5 million people and its capital city is Palermo. 
             The island is home to Mount Etna, one of the most active volcanoes in the world, and features a rich mix of cultures thanks to centuries of Greek, 
             Roman, Arab, and Norman influence.
             With over 600 miles of coastline, delicious local dishes like arancini and cannoli, and historic sites like the Valley of the Temples, 
-            Sicily has something for everyone. Enjoy the food, visit a museum, or just take it easy at the beach.</p>
+            Sicily has something for everyone. Enjoy the food, visit a museum, or just take it easy at the beach.
+        </p>
     </div>
-
-    <hr>
-
-    <div class="row">
     
+    <hr>
+<!--Attractions-->
+    <div class="row">
+    <h2 class="center-align">Attractions</h2>
         <div class="col s12 m4">
         <div class="card">
             <div class="card-image">
@@ -46,9 +50,6 @@
              Mount Etna is Europe's tallest and most active volcano. 
              Visitors can hike its trails or take a cable car to witness its sights,
              including ancient lava flows and a view of the Mediterranean Sea. </p>
-            </div>
-            <div class="card-action">
-            <a href="#">This is a link</a>
             </div>
         </div>
         </div>
@@ -67,9 +68,6 @@
                   one of the best-preserved ancient Greek temples in the world.
                  The site spans approximately 1,300 hectares and offers insight into the architecture and culture of ancient Magna Graecia.</p>
             </div>
-            <div class="card-action">
-            <a href="#">This is a link</a>
-            </div>
         </div>
         </div>
     
@@ -87,18 +85,61 @@
                   The theater was used for dramatic performances and gladiatorial games, and it remains in use today for concerts and cultural events.
                  Set on a hillside, it offers panoramic views of the Ionian Sea and Mount Etna, making it one of Sicily’s most iconic historical landmarks.</p>
             </div>
-            <div class="card-action">
-            <a href="#">This is a link</a>
-            </div>
         </div>
         </div>
     </div>
 
-    <div>
         <!--Accomodations and dining-->
-        <p>Corsaro Etna</p>
-        <p>Ristorante Corsaro Etna</p>
+       <div class="row">
+    <h2 class="center-align">Accomodations and Dining</h2>
+        <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+            <img src="destination-images/corsaro-hotel.jpg">
+            <span class="card-title">Corsaro Etna Hotel & Spa</span>
+            </div>
+            <div class="card-content">
+            <p>Corsaro Etna Hotel & Spa is located 2,000 meters high on Mount Etna.
+                Sitting 300m from the cable car and ski-lift, it is an excellent place to stay for excursions to
+            the top of the mountain and winter sports activities. The hotel features 17 rooms, all coming with amenities such as sattelite TV
+        and private bathrooms, and terraces overlooking the Gulf of Catania. </p>
+            </div>
+        </div>
+        </div>
+    
+        <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+            <img src="destination-images/rifugio-sapienza.jpg">
+            <span class="card-title">Rifugio Sapienza</span>
+            </div>
+            <div class="card-content">
+            <p>Rifugio Sapienza is a 3-star hotel located at 1,910 meters on Mount Etna’s southern slope, just steps from the cable car and ski lifts.
+                 Blending alpine charm with modern comfort, the hotel offers 24 rooms equipped with private bathrooms, TVs, free Wi-Fi,
+                  and many with mountain views or terraces. Guests can enjoy a buffet breakfast, on-site restaurant and pizzeria, bar, and free parking.
+                 With direct access to hiking trails and ski areas, it serves as an ideal base for exploring Etna year-round.
+            </p>
+            </div>
+        </div>
+        </div>
+  
+        <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+            <img src="destination-images/ristorante-cantoniera.jpg">
+            <span class="card-title">Ristorante Cantoniera</span>
+            </div>
+            <div class="card-content">
+            <p>Sitting at the base of Mount Etna, this restaurant offers a variety of local Italian dishes and the opportunity
+                for free tastings before you leave.
+            </p>
+            </div>
+        </div>
+        </div>
+
+
     </div>
+
 
 
     <footer>

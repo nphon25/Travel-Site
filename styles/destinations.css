@@ -1,0 +1,10 @@
+@media (min-width: 992px) {
+  .banner {
+    height: 400px !important;
+    width: 100%;
+  }
+}
+
+h1 {
+    text-align: center;
+}
