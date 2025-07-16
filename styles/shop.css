@@ -4,13 +4,13 @@
 }
 
 .item-card {
-    width: 160px;
+    width: 300px;
     margin: 0 20px;
 }
 
 .item-card .card-image {
     height: 160px;
-    width: 160px;
+    width: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,7 +46,7 @@
 
 .cart-badge {
     position: relative;
-    top: -47px;
+    top: 0px;
     left: 17px
 }
 
@@ -131,4 +131,13 @@ span.badge {
     background-color: black;
     margin:0;
     padding: 0;
+}
+.card-content{
+    padding:100px;    
+    
+}
+@media(min-width:993px){
+    .cart-badge {
+    top: -47px;
+}
 }
