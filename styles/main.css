@@ -9,7 +9,7 @@ html {
 
 body {
     margin: 0;
-    padding-bottom: 56px;
+    padding-bottom: 0px;
     padding-top: 62px; /* Match your navbar height */
 
 }
@@ -227,9 +227,4 @@ nav .brand-logo.left{
 /* Hamburger icon color */
 .sidenav-trigger i {
   color: #333;
-}
-@media(min-width:601px){
-    body{
-        padding-bottom: 0px;
-    }
 }
