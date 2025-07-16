@@ -8,22 +8,303 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="styles/shop.css">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="divider"></div>
-        <p>contendwedwdwdwet</p>
-        <div class="divider"></div>
-        <p>content</p>
+    <header>
+  <!-- Fixed Navigation Bar -->
+  <div class="top-navbar-fixed">
+    <nav class="top-nav">
+      <div class="nav-wrapper nav-color">
+        <div class="container">
+            
+          <a href="index.html" class="brand-logo left">TravelSpiria</a>
+          
+          <ul class="right hide-on-med-and-down">
+            
+            <li><a href="#">Destinations</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="index.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            
+            <li>
+              <a class="search-trigger waves-effect waves-light" href="#!">
+                <i class="material-icons">search</i>
+              </a>
+            </li>
+                      <li>
+            <a href="#!" class="modal-trigger" data-target="cart-modal">
+              <i class="material-icons">shopping_cart</i>
+              <span class="cart-badge badge white-text red" id="cart-count"></span>
+            </a>
+            
+          </li>
+          </ul>
+          
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+        
+        </div>
+        
+      </div>
+    </nav>
+  </div>
 
+  <!-- Right Side Navigation -->
+  <ul class="sidenav right-aligned" id="mobile-demo">
+    <!-- Search Bar -->
+    <li>
+      <div class="search-container">
+        <div class="nav-wrapper">
+          <form>
+            <div class="input-field">
+              <input id="search" type="search" placeholder="Search..." required>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons close">close</i>
+            </div>
+          </form>
+        </div>
+      </div>
+    </li>
+    
+    <li><div class="divider"></div></li>
+    
+    <!-- Navigation Links -->
+    <li><a href="index.html" class="waves-effect"><i class="material-icons">info</i>About us</a></li>
+    <li>
+            <a href="#!" class="modal-trigger" data-target="cart-modal">
+              <i class="material-icons">shopping_cart</i>Shopping Cart
+              <span class="cart-badge badge white-text red" id="cart-count"></span>
+            </a>
+          </li>
+   <li><a href="#!" class="waves-effect"><i class="material-icons">collections</i>Destinations</a></li>
+    <li><a href="contact.html" class="waves-effect"><i class="material-icons">email</i>Contact</a></li>
+    
+    <li><div class="divider"></div></li>
+    
+    <li><a href="#!" class="waves-effect"><i class="material-icons">settings</i>Settings</a></li>
+    <li><a href="#!" class="waves-effect"><i class="material-icons">help</i>Help</a></li>
+  </ul>
+</header>
+    <!-- Main Content -->
+    <div class="container">
+
+        <div class="card valign-wrapper"
+            style="background-image: url('/Images/beach-accessories-shop.png');min-height: 30rem;background-repeat: round; background-size: cover;max-width: none !important;">
+            <div class="col s12 center-align" id="extra-pic-container">
+                <img id="extra-pic" width="43%" src="/Images/shop-text.png">
+            </div>
+        </div>
+
+        <!-- Category Section 1 -->
+        <h5 class="category-title">Must-Haves When Travelling</h5>
+        <div class="scroll-container">
+            <!-- Item cards will be added here -->
+            <div class="item-card card" data-id="1" data-name="Contoured Memory Foam Neck Pillow - Open Story™..." data-price="159.99"
+                data-image="Images/suitcases-shop.png">
+                <div class="card-image">
+                    <img src="Images/suitcases-shop.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">SKONYON 3 Piece Hardshell Luggage Sets Checked...</span>
+                    <p class="price">$159.99</p>
+                    <p>★★★★☆ (24)</p>
+                    <a class="waves-effect waves-light btn nav-color add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+            <!--toothbrush deoderant sunscreen mouthwash suitcase portable charger-->
+            <div class="item-card card" data-id="2" data-name='Dickies 18" Tradesman Backpack for All Ages, Water...' data-price="35.99"
+                data-image="Images/backpack-shop.png">
+                <div class="card-image">
+                    <img src="Images/backpack-shop.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Dickies 18" Tradesman Backpack for All Ages, Water...</span>
+                    <p class="price">$35.99</p>
+                    <p>★★★★★ (12)</p>
+                    <a class="waves-effect waves-light btn nav-color add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="item-card card" data-id="3" data-name="First Aid Only First Aid Kit for 25 People, 1 Count..." data-price="29.99"
+                data-image="Images/first-aid-kit-shop.png">
+                <div class="card-image">
+                    <img src="Images/first-aid-kit-shop.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">First Aid Only First Aid Kit for 25 People, 1 Count...</span>
+                    <p class="price">$29.99</p>
+                    <p>★★★☆☆ (8)</p>
+                    <a class="waves-effect waves-light btn nav-color add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="item-card card" data-id="4" data-name='8pc Complete Travel Toiletry Set Dark Ivy - Open Story™...' data-price="14.99"
+                data-image="Images/toiletries-shop.png">
+                <div class="card-image">
+                    <img src="Images/toiletries-shop.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">8pc Complete Travel Toiletry Set Dark Ivy - Open Story™...</span>
+                    <p class="price">$14.99</p>
+                    <p>★★★★☆ (36)</p>
+                    <a class="waves-effect waves-light btn nav-color add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="item-card card" data-id="5" data-name='Anker 20000mAh 15W Power Bank - Black...' data-price="49.99"
+                data-image="Images/powerbank-shop.png">
+                <div class="card-image">
+                    <img src="Images/powerbank-shop.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Anker 20000mAh 15W Power Bank - Black...</span>
+                    <p class="price">$49.99</p>
+                    <p>★★★★☆ (36)</p>
+                    <a class="waves-effect waves-light btn nav-color add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="item-card card" data-id="6" data-name='Cetaphil Sheer Mineral Sunscreen Stick SPF 50, Face & Body - 0.5...' data-price="7.99"
+                data-image="Images/sunscreen-shop.png">
+                <div class="card-image">
+                    <img src="Images/sunscreen-shop.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Cetaphil Sheer Mineral Sunscreen Stick SPF 50, Face & Body - 0.5...</span>
+                    <p class="price">$7.99</p>
+                    <p>★★★★☆ (36)</p>
+                    <a class="waves-effect waves-light btn nav-color add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Section 2 -->
+        <h5 class="category-title">Comfort Travel</h5>
+        <div class="scroll-container">
+            <div class="item-card card" data-id="5" data-name="Contoured Memory Foam Neck Pillow - Open Story™..." data-price="19.99"
+                data-image="Images/neck-pillow.png">
+                <div class="card-image">
+                    <img src="Images/neck-pillow.png">
+                </div>
+                <!-- -->
+                <div class="card-content">
+                    <span class="card-title">Contoured Memory Foam Neck Pillow - Open Story™...</span>
+                    <p class="price">$19.99</p>
+                    <p>★★★★☆ (19)</p>
+                    <a class="waves-effect waves-light btn nav-color add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="item-card card" data-id="6" data-name="Stanley Cup" data-price="34.99"
+                data-image="Images/stanley-cup-shop.png">
+                <div class="card-image">
+                    <img src="Images/stanley-cup-shop.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Stanley 30 oz Stainless Steel H2.0 Flowstate Quencher...</span>
+                    <p class="price">$34.99</p>
+                    <p>★★★★★ (31)</p>
+                    <a class="waves-effect waves-light btn nav-color add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="item-card card" data-id="7" data-name="Alpine Hearing Protection PartyPlug Pro Natural..." data-price="29.99"
+                data-image="Images/earplugs-shop.png">
+                <div class="card-image">
+                    <img src="Images/earplugs-shop.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Alpine Hearing Protection PartyPlug Pro Natural...</span>
+                    <p class="price">$29.99</p>
+                    <p>★★★☆☆ (5)</p>
+                    <a class="waves-effect waves-light btn nav-color add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="item-card card" data-id="8" data-name="Journee Women's Flow Casual Sneakers..."
+                data-price="49.99" data-image="Images/sneaker-shop.png">
+                <div class="card-image">
+                    <img src="Images/sneaker-shop.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Journee Women's Flow Casual Sneakers...</span>
+                    <p class="price">$49.99</p>
+                    <p>★★★★☆ (28)</p>
+                    <a class="waves-effect waves-light btn nav-color add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="item-card card" data-id="9" data-name="Beats Solo Buds True Wireless Bluetooth Earbuds..."
+                data-price="79.99" data-image="Images/earbuds-shop.png">
+                <div class="card-image">
+                    <img src="Images/earbuds-shop.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Beats Solo Buds True Wireless Bluetooth Earbuds...</span>
+                    <p class="price">$79.99</p>
+                    <p>★★★★☆ (28)</p>
+                    <a class="waves-effect waves-light btn nav-color add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+
+            <div class="item-card card" data-id="10" data-name="Men's NASA Bold Lift Off Pull Over Hoodie"
+                data-price="31.99" data-image="Images/hoodie-shop.png">
+                <div class="card-image">
+                    <img src="Images/hoodie-shop.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Men's NASA Bold Lift Off Pull Over Hoodie</span>
+                    <p class="price">$31.99</p>
+                    <p>★★★★☆ (28)</p>
+                    <a class="waves-effect waves-light btn nav-color add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <h4>Your Shopping Cart</h4>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+                <p class="empty-cart-message">Your cart is empty</p>
+            </div>
+            <div class="cart-total">
+                <p>Total: $<span id="cart-total">0.00</span></p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Continue Shopping</a>
+            <a href="#!" class="waves-effect waves-light btn nav-color" id="checkout-btn">Checkout</a>
+        </div>
     </div>
     <footer>
         <div data-include="components/Dfooter.html"></div>
     </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="scripts/HTMLInclude.min.js"></script>
     <script src="scripts/main.js"></script>
-</body>
+    <script src="/scripts/shop.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
 
+</body>
 </html>
+<!--
+needs
+SKONYON 3 Piece Hardshell Luggage Sets Checked... 159.99
+Dickies 18" Tradesman Backpack for All Ages, Water... 35.99
+First Aid Only First Aid Kit for 25 People, 1 Count... 29.99
+8pc Complete Travel Toiletry Set Dark Ivy - Open Story™... 14.99
+Anker 20000mAh 15W Power Bank - Black... 49.99
+Cetaphil Sheer Mineral Sunscreen Stick SPF 50, Face & Body - 0.5... 7.99
+
+comfort
+Contoured Memory Foam Neck Pillow - Open Story™... 19.99
+Stanley 30 oz Stainless Steel H2.0 Flowstate Quencher... 34.99
+Alpine Hearing Protection PartyPlug Pro Natural... 29.99
+Beats Solo Buds True Wireless Bluetooth Earbuds... 79.99
+Journee Women's Flow Casual Sneakers... 49.99
+Men's NASA Bold Lift Off Pull Over Hoodie... 31.99
+-->

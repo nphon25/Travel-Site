@@ -1,31 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Site</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Travelspiria</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Trebuchet+MS&display=swap" rel="stylesheet" />
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles/index.css" />
 </head>
-
 <body>
-    <header>
-        <h1>Index Page</h1>
-        <div data-include="components/Dheader.html"></div>
-    </header>
 
-    <hr>
-
-    <div>
-        <p>content</p>
+  <!-- Hero Carousel -->
+  <section class="hero-carousel">
+    <div class="carousel carousel-slider center" data-indicators="true">
+      <div
+        class="carousel-item hero-slide"
+        style="background-image: url('graphics/imgs/fuji.jpg');"
+      >
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <h2>Discover Mount Fuji</h2>
+            <h5>Explore Japan’s most iconic mountain and its scenic trails.</h5>
+            <a class="btn hero-btn waves-effect waves-light" href="mount-fuji.html"
+              >Start Exploring</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="carousel-item hero-slide"
+        style="background-image: url('graphics/imgs/hero.jpg');"
+      >
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <h2>Experience Morocco</h2>
+            <h5>Wander through vibrant souks and desert landscapes.</h5>
+            <a class="btn hero-btn waves-effect waves-light" href="morocco.html"
+              >Learn More</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="carousel-item hero-slide"
+        style="background-image: url('graphics/imgs/fuji.jpg');"
+      >
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <h2>Adventure Awaits</h2>
+            <h5>Find your path from mountains to oceans.</h5>
+            <a class="btn hero-btn waves-effect waves-light" href="adventure.html"
+              >Plan Your Trip</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <hr>
+  <!-- Tagline -->
+  <section class="section green-bg">
+    <div class="container center-align">
+      <h2 class="section-title">Travelspiria. One Platform. Multiple Modes.</h2>
+      <h5 class="flow-text">
+       Travel personalized to how you explore—solo, group, family or business.
+      </h5>
+    </div>
+  </section>
 
-    <footer>
-        <div data-include="components/Dfooter.html"></div>
-    </footer>
-    <script src="scripts/HTMLInclude.min.js"></script>
+  <!-- Smart Features Section -->
+  <section class="section green-bg personalized-feed">
+    <div class="container">
+      <div class="row center-align">
+        <div class="col s12 m4">
+          <i class="material-icons large green-text text-darken-2">explore</i>
+          <h5>Explore Your Way</h5>
+          <p>Tailored suggestions based on how you travel—solo, group, or luxury.</p>
+        </div>
+        <div class="col s12 m4">
+          <i class="material-icons large green-text text-darken-2">lightbulb</i>
+          <h5>Smart Recommendations</h5>
+          <p>Surfaced using live data and your preferences.</p>
+        </div>
+        <div class="col s12 m4">
+          <i class="material-icons large green-text text-darken-2">travel_explore</i>
+          <h5>Adaptive Interface</h5>
+          <p>Features, layout, and safety tools adapt to match your needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Actions -->
+  <section class="section quick-links center-align">
+    <div class="container">
+      <h5 class="section-title">Quick Actions</h5>
+      <div class="row">
+        <div class="col s12">
+          <a href="#book" class="btn-flat waves-effect">Book</a>
+          <a href="#navigate" class="btn-flat waves-effect">Navigate</a>
+          <a href="#checkin" class="btn-flat waves-effect">Check-in</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Today's Suggestions -->
+  <section class="section white-bg">
+    <div class="container">
+      <h4 class="section-title">Today's Suggestions</h4>
+      <div class="row">
+        <div class="col s12 m4">
+          <a href="suggestion1.html" class="suggestion-card hover-zoom">
+            <img
+              src="graphics/imgs/fuji.jpg"
+              alt="Fuji Trails"
+              class="responsive-img materialboxed"
+            />
+            <div class="card-info">
+              <h6>Hidden Gem: Fuji Trails</h6>
+              <p>Escape the crowds with serene hikes around Mt. Fuji.</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s12 m4">
+          <a href="suggestion2.html" class="suggestion-card hover-zoom">
+            <img
+              src="graphics/imgs/hero.jpg"
+              alt="Sunset Surfing"
+              class="responsive-img materialboxed"
+            />
+            <div class="card-info">
+              <h6>Sunset Surfing</h6>
+              <p>Top beaches for beginners &amp; pros alike.</p>
+            </div>
+          </a>
+        </div>
+        <div class="col s12 m4">
+          <a href="suggestion3.html" class="suggestion-card hover-zoom">
+            <img
+              src="graphics/imgs/fuji.jpg"
+              alt="Urban Food Walks"
+              class="responsive-img materialboxed"
+            />
+            <div class="card-info">
+              <h6>Urban Food Walks</h6>
+              <p>Discover the best street eats today.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento Grid -->
+  <section class="section bento-grid">
+    <div class="container">
+      <h5 class="section-title">Personalized Travel Modes</h5>
+      <div class="row">
+        <div class="col s12 l6">
+          <a href="#" class="card hoverable waves-effect">
+            <div class="card-image">
+              <img
+                src="graphics/imgs/journey.jpg"
+                alt="Featured Travel"
+                class="materialboxed responsive-img"
+              />
+              <span class="card-title white-text">Your Journey, Your Way</span>
+            </div>
+            <div class="card-content">
+              <p>
+                One platform. Multiple modes. Travel personalized to how you
+                explore.
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col s12 l6">
+          <div class="row">
+            <div class="col s6">
+              <a href="#" class="card hoverable waves-effect">
+                <div class="card-image">
+                  <img
+                    src="graphics/imgs/solo.jpg"
+                    alt="Solo Travel"
+                    class="materialboxed responsive-img"
+                  />
+                  <span class="card-title white-text">Solo</span>
+                </div>
+              </a>
+            </div>
+            <div class="col s6">
+              <a href="#" class="card hoverable waves-effect">
+                <div class="card-image">
+                  <img
+                    src="graphics/imgs/group.jpg"
+                    alt="Group Travel"
+                    class="materialboxed responsive-img"
+                  />
+                  <span class="card-title white-text">Group</span>
+                </div>
+              </a>
+            </div>
+            <div class="col s6">
+              <a href="#" class="card hoverable waves-effect">
+                <div class="card-image">
+                  <img
+                    src="graphics/imgs/family.jpg"
+                    alt="Family Travel"
+                    class="materialboxed responsive-img"
+                  />
+                  <span class="card-title white-text">Family</span>
+                </div>
+              </a>
+            </div>
+            <div class="col s6">
+              <a href="#" class="card hoverable waves-effect">
+                <div class="card-image">
+                  <img
+                    src="graphics/imgs/business.jpg"
+                    alt="Business Travel"
+                    class="materialboxed responsive-img"
+                  />
+                  <span class="card-title white-text">Business</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Destinations -->
+  <section class="section dark-bg">
+    <div class="container">
+      <h5 class="section-title">Top Destinations</h5>
+      <div class="row center-align">
+        <div class="col s6 m3">
+          <a href="peru.html" class="hover-zoom waves-effect">
+            <img src="graphics/imgs/hero.jpg" alt="Peru landscape" class="responsive-img materialboxed" />
+            <h5>Peru</h5>
+          </a>
+        </div>
+        <div class="col s6 m3">
+          <a href="morocco.html" class="hover-zoom waves-effect">
+            <img src="graphics/imgs/hero.jpg" alt="Morocco market" class="responsive-img materialboxed" />
+            <h5>Morocco</h5>
+          </a>
+        </div>
+        <div class="col s6 m3">
+          <a href="japan.html" class="hover-zoom waves-effect">
+            <img src="graphics/imgs/fuji.jpg" alt="Japan Mt Fuji" class="responsive-img materialboxed" />
+            <h5>Japan</h5>
+          </a>
+        </div>
+        <div class="col s6 m3">
+          <a href="greece.html" class="hover-zoom waves-effect">
+            <img src="graphics/imgs/hero.jpg" alt="Greece islands" class="responsive-img materialboxed" />
+            <h5>Greece</h5>
+          </a>
+        </div>
+        <div class="col s6 m3">
+          <a href="thailand.html" class="hover-zoom waves-effect">
+            <img src="graphics/imgs/thailand.jpg" alt="Thailand beaches" class="responsive-img materialboxed" />
+            <h5>Thailand</h5>
+          </a>
+        </div>
+        <div class="col s6 m3">
+          <a href="canada.html" class="hover-zoom waves-effect">
+            <img src="graphics/imgs/canada.jpg" alt="Canada mountains" class="responsive-img materialboxed" />
+            <h5>Canada</h5>
+          </a>
+        </div>
+        <div class="col s6 m3">
+          <a href="new-zealand.html" class="hover-zoom waves-effect">
+            <img src="graphics/imgs/newzealand.jpg" alt="New Zealand landscape" class="responsive-img materialboxed" />
+            <h5>New Zealand</h5>
+          </a>
+        </div>
+        <div class="col s6 m3">
+          <a href="iceland.html" class="hover-zoom waves-effect">
+            <img src="graphics/imgs/iceland.jpg" alt="Iceland waterfall" class="responsive-img materialboxed" />
+            <h5>Iceland</h5>
+          </a>
+        </div>
+      </div>
+      <div class="center-align">
+        <a href="destinations.html" class="btn green darken-2 waves-effect waves-light">View More Destinations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Travel Shop Showcase -->
+  <section class="section white-bg" id="shop-showcase">
+    <div class="container">
+      <h4 class="section-title center-align">Featured Travel Gear</h4>
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="graphics/imgs/business.jpg" alt="Travel Backpack" class="materialboxed responsive-img" />
+            </div>
+            <div class="card-content">
+              <h6>All-Terrain Backpack</h6>
+              <p>Durable, waterproof, and stylish for every adventure.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="graphics/imgs/solo.jpg" alt="Packing Cubes" class="materialboxed responsive-img" />
+            </div>
+            <div class="card-content">
+              <h6>Packing Cube Set</h6>
+              <p>Stay organized with this 6-piece lightweight travel set.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="graphics/imgs/journey.jpg" alt="Travel Kit" class="materialboxed responsive-img" />
+            </div>
+            <div class="card-content">
+              <h6>Essential Travel Kit</h6>
+              <p>Includes TSA bottles, eye mask, and cable organizer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="center-align">
+        <a href="shop.html" class="btn green darken-2 waves-effect waves-light">View More Gear</a>
+      </div>
+    </div>
+  </section>
+
+ <!-- Reviews -->
+<section class="section white-bg" id="reviews" aria-labelledby="reviews-title">
+  <div class="container">
+    <h4 class="section-title center-align" id="reviews-title">What Travelers Are Saying</h4>
+    <div class="row">
+      <!-- Review Card 1 -->
+      <article class="col s12 m6 l4">
+        <div class="card hoverable" tabindex="0" role="region" aria-label="Review by Pablo G.">
+          <div class="card-content">
+            <h5 class="card-title green-text text-darken-2">Pablo G.</h5>
+            <p>“This platform completely changed how I plan my trips. The recommendations are spot-on! Travelspiria speaks to my soul.”</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Review Card 2 -->
+      <article class="col s12 m6 l4">
+        <div class="card hoverable" tabindex="0" role="region" aria-label="Review by Aaron J.">
+          <div class="card-content">
+            <h5 class="card-title green-text text-darken-2">Aaron J.</h5>
+            <p>“The local updates are so helpful when I land in a new place—love the curated tips!”</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Review Card 3 -->
+      <article class="col s12 m6 l4">
+        <div class="card hoverable" tabindex="0" role="region" aria-label="Review by Nam P.">
+          <div class="card-content">
+            <h5 class="card-title green-text text-darken-2">Nam P.</h5>
+            <p>“As a solo traveler, this is my go-to app for planning every adventure.”</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Review Card 4 -->
+      <article class="col s12 m6 l4">
+        <div class="card hoverable" tabindex="0" role="region" aria-label="Review by Elijah M.">
+          <div class="card-content">
+            <h5 class="card-title green-text text-darken-2">Elijah M.</h5>
+            <p>“I’m obsessed with the shop gear—everything is functional *and* beautiful. Great find!”</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Review Card 5 -->
+      <article class="col s12 m6 l4">
+        <div class="card hoverable" tabindex="0" role="region" aria-label="Review by Latori M.">
+          <div class="card-content">
+            <h5 class="card-title green-text text-darken-2">Latori M.</h5>
+            <p>“From toddler-friendly stops to emergency snacks—it thinks like a parent. BEST APP EVER.”</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Review Card 6 -->
+      <article class="col s12 m6 l4">
+        <div class="card hoverable" tabindex="0" role="region" aria-label="Review by Justin M.">
+          <div class="card-content">
+            <h5 class="card-title green-text text-darken-2">Justin M.</h5>
+            <p>“Finally an app that handles group chaos like a pro.”</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+  <footer data-include="components/Dfooter.html"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="scripts/index.js"></script>
+<script src="scripts/main.js"></script>
+
 </body>
-
 </html>
