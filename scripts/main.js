@@ -1,3 +1,20 @@
+window.onload = function() {
+    // Hide the loading screen
+    document.getElementById('loading-screen').style.display = 'none';
+
+    // Show the page content
+    document.body.style.opacity = 1;
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Hide the loading screen
+    document.getElementById('loading-screen').style.display = 'none';
+
+    // Show the page content
+    document.body.style.opacity = 1;
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
   // Load the header only if it doesn't already exist
   if (!document.querySelector('header')) {

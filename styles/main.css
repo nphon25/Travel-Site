@@ -1,4 +1,6 @@
-
+html {
+  scroll-behavior: smooth;
+}
 .bot-nav-space {
     display: flex;
     justify-content: space-around;
@@ -35,6 +37,11 @@ body {
     background-color: #657A42;
 }
 
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
 .bottom-nav .nav-wrapper ul li a {
     display: flex;
     justify-content: center;
@@ -71,6 +78,9 @@ body {
   transition: all 0.3s ease;
 }
 
+nav .brand-logo.left{
+    font-size: x-large;
+}
 /* Expanded Search Area */
 .search-expand {
   position: absolute;
