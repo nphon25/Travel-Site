@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trip Recommendations Survey</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; }
+    label { display: block; margin: 1rem 0 0.5rem; }
+    input[type="text"] { width: 100%; padding: 0.5rem; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; }
+    #results { margin-top: 2rem; white-space: pre-wrap; background: #f0f0f0; padding: 1rem; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Get Trip Recommendations by City</h1>
+  <form id="surveyForm">
+    <label for="city">Enter a city name:</label>
+    <input type="text" id="city" name="city" placeholder="e.g. Paris" required />
+    <button type="submit">Get Recommendations</button>
+  </form>
+
+  <div id="results"></div>
+
+  <script src="survey.js"></script>
+</body>
+</html>
