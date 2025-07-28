@@ -7,55 +7,46 @@
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Trebuchet+MS&display=swap" rel="stylesheet" />
+  
   <!-- Materialize CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="styles/index.css" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
+
+  <!-- Header Include -->
+  <header data-include="components/Dheader.html"></header>
 
   <!-- Hero Carousel -->
   <section class="hero-carousel">
     <div class="carousel carousel-slider center" data-indicators="true">
-      <div
-        class="carousel-item hero-slide"
-        style="background-image: url('graphics/imgs/sicily\ .jpg');"
-      >
+      <div class="carousel-item hero-slide" style="background-image: url('images/graphics/sicily.jpg');">
         <div class="hero-overlay">
           <div class="hero-content">
-            <h2>Discover Sicily </h2>
+            <h2>Discover Sicily</h2>
             <h5>Wander through vibrant souls and desert landscapes.</h5>
-            <a class="btn hero-btn waves-effect waves-light" href="destination-1.html"
-              >Start Exploring</a
-            >
+            <a class="btn hero-btn waves-effect waves-light" href="destination-1.html">Start Exploring</a>
           </div>
         </div>
       </div>
-      <div
-        class="carousel-item hero-slide"
-        style="background-image: url('graphics/imgs/athens.jpg');"
-      >
+      <div class="carousel-item hero-slide" style="background-image: url('images/graphics/athens.jpg');">
         <div class="hero-overlay">
           <div class="hero-content">
             <h2>Experience Athens</h2>
             <h5>Wander through vibrant souks and desert landscapes.</h5>
-            <a class="btn hero-btn waves-effect waves-light" href="destination-2.html"
-              >Learn More</a
-            >
+            <a class="btn hero-btn waves-effect waves-light" href="destination-2.html">Learn More</a>
           </div>
         </div>
       </div>
-      <div
-        class="carousel-item hero-slide"
-        style="background-image: url('graphics/imgs/fuji.jpg');"
-      >
+      <div class="carousel-item hero-slide" style="background-image: url('images/graphics/athens.jpg');">
         <div class="hero-overlay">
           <div class="hero-content">
             <h2>Adventure Awaits</h2>
             <h5>Find your path from mountains to oceans.</h5>
-            <a class="btn hero-btn waves-effect waves-light" href="#"
-              >Plan Your Trip</a
-            >
+            <a class="btn hero-btn waves-effect waves-light" href="#">Plan Your Trip</a>
           </div>
         </div>
       </div>
@@ -67,7 +58,7 @@
     <div class="container center-align">
       <h2 class="section-title">Travelspiria. One Platform. Multiple Modes.</h2>
       <h5 class="flow-text">
-       Travel personalized to how you explore—solo, group, family or business.
+        Travel personalized to how you explore—solo, group, family or business.
       </h5>
     </div>
   </section>
@@ -116,10 +107,7 @@
       <div class="row">
         <div class="col s12 m4">
           <a href="suggestion1.html" class="suggestion-card hover-zoom">
-            <img
-              src="graphics/imgs/fuji.jpg"
-              alt="Fuji Trails"
-              class="responsive-img materialboxed"/>
+            <img src="images/graphics/fuji.jpg" alt="Fuji Trails" class="responsive-img materialboxed" />
             <div class="card-info">
               <h6>Hidden Gem: Fuji Trails</h6>
               <p>Escape the crowds with serene hikes around Mt. Fuji.</p>
@@ -128,11 +116,7 @@
         </div>
         <div class="col s12 m4">
           <a href="suggestion2.html" class="suggestion-card hover-zoom">
-            <img
-              src="graphics/imgs/hero.jpg"
-              alt="Sunset Surfing"
-              class="responsive-img materialboxed"
-            />
+            <img src="images/graphics/hero.jpg" alt="Sunset Surfing" class="responsive-img materialboxed" />
             <div class="card-info">
               <h6>Sunset Surfing</h6>
               <p>Top beaches for beginners &amp; pros alike.</p>
@@ -141,8 +125,7 @@
         </div>
         <div class="col s12 m4">
           <a href="suggestion3.html" class="suggestion-card hover-zoom">
-            <img src="graphics/imgs/fuji.jpg" alt="Urban Food Walks"
-              class="responsive-img materialboxed"/>
+            <img src="images/graphics/fuji.jpg" alt="Urban Food Walks" class="responsive-img materialboxed" />
             <div class="card-info">
               <h6>Urban Food Walks</h6>
               <p>Discover the best street eats today.</p>
@@ -161,18 +144,11 @@
         <div class="col s12 l6">
           <a href="#" class="card hoverable waves-effect">
             <div class="card-image">
-              <img
-                src="graphics/imgs/journey.jpg"
-                alt="Featured Travel"
-                class="materialboxed responsive-img"
-              />
+              <img src="graphics/imgs/journey.jpg" alt="Featured Travel" class="materialboxed responsive-img" />
               <span class="card-title white-text">Your Journey, Your Way</span>
             </div>
             <div class="card-content">
-              <p>
-                One platform. Multiple modes. Travel personalized to how you
-                explore.
-              </p>
+              <p>One platform. Multiple modes. Travel personalized to how you explore.</p>
             </div>
           </a>
         </div>
@@ -181,11 +157,7 @@
             <div class="col s6">
               <a href="#" class="card hoverable waves-effect">
                 <div class="card-image">
-                  <img
-                    src="graphics/imgs/solo.jpg"
-                    alt="Solo Travel"
-                    class="materialboxed responsive-img"
-                  />
+                  <img src="graphics/imgs/solo.jpg" alt="Solo Travel" class="materialboxed responsive-img" />
                   <span class="card-title white-text">Solo</span>
                 </div>
               </a>
@@ -193,11 +165,7 @@
             <div class="col s6">
               <a href="#" class="card hoverable waves-effect">
                 <div class="card-image">
-                  <img
-                    src="graphics/imgs/group.jpg"
-                    alt="Group Travel"
-                    class="materialboxed responsive-img"
-                  />
+                  <img src="graphics/imgs/group.jpg" alt="Group Travel" class="materialboxed responsive-img" />
                   <span class="card-title white-text">Group</span>
                 </div>
               </a>
@@ -205,11 +173,7 @@
             <div class="col s6">
               <a href="#" class="card hoverable waves-effect">
                 <div class="card-image">
-                  <img
-                    src="graphics/imgs/family.jpg"
-                    alt="Family Travel"
-                    class="materialboxed responsive-img"
-                  />
+                  <img src="graphics/imgs/family.jpg" alt="Family Travel" class="materialboxed responsive-img" />
                   <span class="card-title white-text">Family</span>
                 </div>
               </a>
@@ -217,11 +181,7 @@
             <div class="col s6">
               <a href="#" class="card hoverable waves-effect">
                 <div class="card-image">
-                  <img
-                    src="graphics/imgs/business.jpg"
-                    alt="Business Travel"
-                    class="materialboxed responsive-img"
-                  />
+                  <img src="graphics/imgs/business.jpg" alt="Business Travel" class="materialboxed responsive-img" />
                   <span class="card-title white-text">Business</span>
                 </div>
               </a>
@@ -239,13 +199,13 @@
       <div class="row center-align">
         <div class="col s6 m3">
           <a href="destination-1.html" class="hover-zoom waves-effect">
-            <img src="graphics/imgs/sicily .jpg" alt="sicily" class="responsive-img materialboxed" />
+            <img src="graphics/imgs/sicily.jpg" alt="Sicily" class="responsive-img materialboxed" />
             <h5>Sicily</h5>
           </a>
         </div>
         <div class="col s6 m3">
           <a href="destination-2.html" class="hover-zoom waves-effect">
-            <img src="graphics/imgs/athens.jpg" alt="anthens" class="responsive-img materialboxed" />
+            <img src="graphics/imgs/athens.jpg" alt="Athens" class="responsive-img materialboxed" />
             <h5>Athens</h5>
           </a>
         </div>
@@ -261,9 +221,9 @@
             <h5>Greece</h5>
           </a>
         </div>
-</div>
-<div class="row center-align">
+      </div>
 
+      <div class="row center-align">
         <div class="col s6 m3">
           <a href="thailand.html" class="hover-zoom waves-effect">
             <img src="graphics/imgs/thailand.jpg" alt="Thailand beaches" class="responsive-img materialboxed" />
@@ -272,13 +232,13 @@
         </div>
         <div class="col s6 m3">
           <a href="canada.html" class="hover-zoom waves-effect">
-            <img src="graphics/imgs/greece.jpg" alt="greece" class="responsive-img materialboxed" />
+            <img src="graphics/imgs/canada.jpg" alt="Canada" class="responsive-img materialboxed" />
             <h5>Canada</h5>
           </a>
         </div>
         <div class="col s6 m3">
           <a href="new-zealand.html" class="hover-zoom waves-effect">
-            <img src="graphics/imgs/new zealand.jpg" alt="New Zealand landscape" class="responsive-img materialboxed" />
+            <img src="graphics/imgs/new-zealand.jpg" alt="New Zealand landscape" class="responsive-img materialboxed" />
             <h5>New Zealand</h5>
           </a>
         </div>
@@ -289,6 +249,7 @@
           </a>
         </div>
       </div>
+
       <div class="center-align">
         <a href="#" class="btn green darken-2 waves-effect waves-light white-text">View More Destinations</a>
       </div>
@@ -303,7 +264,7 @@
         <div class="col s12 m4">
           <div class="card hoverable">
             <div class="card-image">
-              <img src="Images/backpack-shop.png" alt="Travel Backpack" class="materialboxed responsive-img" />
+              <img src="images/backpack-shop.png" alt="Travel Backpack" class="materialboxed responsive-img" />
             </div>
             <div class="card-content">
               <h6>Dickies 18" Tradesman Backpack for All Ages, Water..</h6>
@@ -314,7 +275,7 @@
         <div class="col s12 m4">
           <div class="card hoverable">
             <div class="card-image">
-              <img src="Images/neck-pillow.png" alt="Packing Cubes" class="materialboxed responsive-img" />
+              <img src="images/neck-pillow.png" alt="Packing Cubes" class="materialboxed responsive-img" />
             </div>
             <div class="card-content">
               <h6>Contoured Memory Foam Neck Pillow - Open Story™...</h6>
@@ -325,11 +286,11 @@
         <div class="col s12 m4">
           <div class="card hoverable">
             <div class="card-image">
-              <img src="Images/first-aid-kit-shop.png" alt="Travel Kit" class="materialboxed responsive-img" />
+              <img src="images/first-aid-kit-shop.png" alt="Travel Kit" class="materialboxed responsive-img" />
             </div>
             <div class="card-content">
               <h6>First Aid Only First Aid Kit</h6>
-              <p>Includes Bandages, burn gel, and more for 15 people .</p>
+              <p>Includes Bandages, burn gel, and more for 15 people.</p>
             </div>
           </div>
         </div>
@@ -340,80 +301,72 @@
     </div>
   </section>
 
- <!-- Reviews -->
-<section class="section white-bg" id="reviews" aria-labelledby="reviews-title">
-  <div class="container">
-    <h4 class="section-title center-align" id="reviews-title">What Travelers Are Saying</h4>
-    <div class="row">
-      <!-- Review Card 1 -->
-      <article class="col s12 m6 l4">
-        <div class="card hoverable" tabindex="0" role="region" aria-label="Review by Pablo G.">
-          <div class="card-content">
-            <h5 class="card-title green-text text-darken-2">Pablo G.</h5>
-            <p>“This platform completely changed how I plan my trips. The recommendations are spot-on! Travelspiria speaks to my soul.”</p>
+  <!-- Reviews -->
+  <section class="section white-bg" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <h4 class="section-title center-align" id="reviews-title">What Travelers Are Saying</h4>
+      <div class="row">
+        <article class="col s12 m6 l4" tabindex="0" role="region" aria-label="Review by Pablo G.">
+          <div class="card hoverable">
+            <div class="card-content">
+              <h5 class="card-title green-text text-darken-2">Pablo G.</h5>
+              <p>“This platform completely changed how I plan my trips. The recommendations are spot-on! Travelspiria speaks to my soul.”</p>
+            </div>
           </div>
-        </div>
-      </article>
-
-      <!-- Review Card 2 -->
-      <article class="col s12 m6 l4">
-        <div class="card hoverable" tabindex="0" role="region" aria-label="Review by Aaron J.">
-          <div class="card-content">
-            <h5 class="card-title green-text text-darken-2">Aaron J.</h5>
-            <p>“The local updates are so helpful when I land in a new place—love the curated tips!”</p>
+        </article>
+        <article class="col s12 m6 l4" tabindex="0" role="region" aria-label="Review by Aaron J.">
+          <div class="card hoverable">
+            <div class="card-content">
+              <h5 class="card-title green-text text-darken-2">Aaron J.</h5>
+              <p>“The local updates are so helpful when I land in a new place—love the curated tips!”</p>
+            </div>
           </div>
-        </div>
-      </article>
-
-      <!-- Review Card 3 -->
-      <article class="col s12 m6 l4">
-        <div class="card hoverable" tabindex="0" role="region" aria-label="Review by Nam P.">
-          <div class="card-content">
-            <h5 class="card-title green-text text-darken-2">Nam P.</h5>
-            <p>“As a solo traveler, this is my go-to app for planning every adventure.”</p>
+        </article>
+        <article class="col s12 m6 l4" tabindex="0" role="region" aria-label="Review by Nam P.">
+          <div class="card hoverable">
+            <div class="card-content">
+              <h5 class="card-title green-text text-darken-2">Nam P.</h5>
+              <p>“As a solo traveler, this is my go-to app for planning every adventure.”</p>
+            </div>
           </div>
-        </div>
-      </article>
-
-      <!-- Review Card 4 -->
-      <article class="col s12 m6 l4">
-        <div class="card hoverable" tabindex="0" role="region" aria-label="Review by Elijah M.">
-          <div class="card-content">
-            <h5 class="card-title green-text text-darken-2">Elijah M.</h5>
-            <p>“I’m obsessed with the shop gear—everything is functional *and* beautiful. Great find!”</p>
+        </article>
+        <article class="col s12 m6 l4" tabindex="0" role="region" aria-label="Review by Elijah M.">
+          <div class="card hoverable">
+            <div class="card-content">
+              <h5 class="card-title green-text text-darken-2">Elijah M.</h5>
+              <p>“I’m obsessed with the shop gear—everything is functional *and* beautiful. Great find!”</p>
+            </div>
           </div>
-        </div>
-      </article>
-
-      <!-- Review Card 5 -->
-      <article class="col s12 m6 l4">
-        <div class="card hoverable" tabindex="0" role="region" aria-label="Review by Latori M.">
-          <div class="card-content">
-            <h5 class="card-title green-text text-darken-2">Latori M.</h5>
-            <p>“From toddler-friendly stops to emergency snacks—it thinks like a parent. BEST APP EVER.”</p>
+        </article>
+        <article class="col s12 m6 l4" tabindex="0" role="region" aria-label="Review by Latori M.">
+          <div class="card hoverable">
+            <div class="card-content">
+              <h5 class="card-title green-text text-darken-2">Latori M.</h5>
+              <p>“From toddler-friendly stops to emergency snacks—it thinks like a parent. BEST APP EVER.”</p>
+            </div>
           </div>
-        </div>
-      </article>
-
-      <!-- Review Card 6 -->
-      <article class="col s12 m6 l4">
-        <div class="card hoverable" tabindex="0" role="region" aria-label="Review by Justin M.">
-          <div class="card-content">
-            <h5 class="card-title green-text text-darken-2">David S.</h5>
-            <p>“Finally an app that handles group chaos like a pro.”</p>
+        </article>
+        <article class="col s12 m6 l4" tabindex="0" role="region" aria-label="Review by Justin M.">
+          <div class="card hoverable">
+            <div class="card-content">
+              <h5 class="card-title green-text text-darken-2">David S.</h5>
+              <p>“Finally an app that handles group chaos like a pro.”</p>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
+  <!-- Footer Include -->
   <footer data-include="components/Dfooter.html"></footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="scripts/index.js"></script>
-<script src="scripts/main.js"></script>
+  <!-- Scripts -->
+  <script src="scripts/HTMLInclude.min.js"></script>
+
+  <script src="scripts/main.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </body>
 </html>
