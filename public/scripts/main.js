@@ -1,28 +1,21 @@
+// Hide loading screen and show page content on window load
 window.onload = function() {
-    // Hide the loading screen
-    document.getElementById('loading-screen').style.display = 'none';
-
-    // Show the page content
-    document.body.style.opacity = 1;
+  const loadingScreen = document.getElementById('loading-screen');
+  if (loadingScreen) loadingScreen.style.display = 'none';
+  document.body.style.opacity = 1;
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Hide the loading screen
-    document.getElementById('loading-screen').style.display = 'none';
+// Also ensure hiding loading screen on DOMContentLoaded (fallback)
+document.addEventListener('DOMContentLoaded', () => {
+  const loadingScreen = document.getElementById('loading-screen');
+  if (loadingScreen) loadingScreen.style.display = 'none';
+  document.body.style.opacity = 1;
 
-    // Show the page content
-    document.body.style.opacity = 1;
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Load the header only if it doesn't already exist
+  // Load header dynamically if not present
   if (!document.querySelector('header')) {
     fetch('components/Dheader.html')
       .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+        if (!response.ok) throw new Error('Network response was not ok');
         return response.text();
       })
       .then(html => {
@@ -32,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .catch(error => {
         console.error('Error loading header:', error);
-        // Fallback header if needed
+        // Fallback simple header if Dheader.html fails
         if (!document.querySelector('header')) {
           document.body.insertAdjacentHTML('afterbegin', 
             `<header>
@@ -47,33 +40,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
   } else {
-    // If header already exists, just initialize components
+    // If header is already in place
     initMaterialize();
     initSearch();
   }
 });
 
+// Initialize Materialize components like sidenav
 function initMaterialize() {
-  // Initialize sidenav with right-alignment
   const sidenavs = document.querySelectorAll('.sidenav');
-  M.Sidenav.init(sidenavs, {
-    edge: 'right',
-    draggable: true
-  });
+  if (window.M && M.Sidenav) {
+    M.Sidenav.init(sidenavs, { edge: 'right', draggable: true });
+  } else {
+    console.warn('Materialize (M) not loaded or Sidenav missing');
+  }
 
-  // Initialize search functionality in sidenav
+  // Setup search input key event and close icon click
   const searchInput = document.getElementById('search');
   if (searchInput) {
-    searchInput.addEventListener('keyup', function(e) {
-      if (e.key === 'Enter') {
-        performSearch(this.value);
-      }
+    searchInput.addEventListener('keyup', e => {
+      if (e.key === 'Enter') performSearch(searchInput.value);
     });
 
-    // Close icon functionality
-    const closeIcon = searchInput.nextElementSibling.querySelector('.close');
+    const closeIcon = searchInput.nextElementSibling?.querySelector('.close');
     if (closeIcon) {
-      closeIcon.addEventListener('click', function() {
+      closeIcon.addEventListener('click', () => {
         searchInput.value = '';
         searchInput.focus();
       });
@@ -81,6 +72,7 @@ function initMaterialize() {
   }
 }
 
+// Initialize search UI open/close events
 function initSearch() {
   const searchContainer = document.querySelector('.search-container');
   const searchTrigger = document.querySelector('.search-trigger');
@@ -89,32 +81,28 @@ function initSearch() {
 
   if (!searchContainer || !searchTrigger) return;
 
-  // Open search
-  searchTrigger.addEventListener('click', function(e) {
+  searchTrigger.addEventListener('click', e => {
     e.preventDefault();
     e.stopPropagation();
     searchContainer.classList.add('active');
     if (searchInput) searchInput.focus();
   });
 
-  // Close search
   if (closeSearch) {
-    closeSearch.addEventListener('click', function(e) {
+    closeSearch.addEventListener('click', e => {
       e.preventDefault();
       e.stopPropagation();
       closeSearchFn();
     });
   }
 
-  // Close when clicking outside
-  document.addEventListener('click', function(e) {
+  document.addEventListener('click', e => {
     if (!e.target.closest('.search-container') && searchContainer.classList.contains('active')) {
       closeSearchFn();
     }
   });
 
-  // Close on ESC
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && searchContainer.classList.contains('active')) {
       closeSearchFn();
     }
@@ -126,6 +114,7 @@ function initSearch() {
   }
 }
 
+// Placeholder search function — replace with your actual search logic
 function performSearch(query) {
   console.log('Searching for:', query);
 }

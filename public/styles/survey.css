@@ -1,0 +1,52 @@
+/* Scope all styles to the survey section only */
+.survey-section .survey-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.survey-section .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.survey-section .form-group.full-width {
+  grid-column: span 2;
+}
+
+.survey-section label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.survey-section input,
+.survey-section select,
+.survey-section button {
+  padding: 0.7rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.survey-section button {
+  background-color: #657A42;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.survey-section button:hover {
+  background-color: #4e6035;
+}
+
+.survey-section .results-container {
+  margin-top: 2rem;
+  background: #f4f4f4;
+  padding: 1.5rem;
+  border-radius: 6px;
+  font-family: 'Trebuchet MS', sans-serif;
+}
