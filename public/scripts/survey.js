@@ -14,11 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsDiv.textContent = 'Loading...';
 
     try {
-      const response = await fetch('http://localhost:3000/recommendations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ city }),
-      });
+      const response = await fetch('http://localhost:5500/recommendations', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ city }),
+});
+
 
       if (!response.ok) {
         const err = await response.json();

@@ -1,4 +1,4 @@
-// server.js
+
 import express from 'express';
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
@@ -9,15 +9,14 @@ dotenv.config();
 const { CLIENT_ID, CLIENT_SECRET } = process.env;
 
 if (!CLIENT_ID || !CLIENT_SECRET) {
-  console.error('❌ CLIENT_ID and CLIENT_SECRET must be defined in .env');
+  console.error('CLIENT_ID and CLIENT_SECRET must be defined in .env');
   process.exit(1);
 }
 
 const app = express();
-
 app.use(cors());
 app.use(express.json());
-app.use(express.static('../public')); // Ensure path is correct based on your file structure
+app.use(express.static('../public'));
 
 // Fetch OAuth token from Amadeus
 const getToken = async () => {
@@ -34,7 +33,7 @@ const getToken = async () => {
   const data = await response.json();
 
   if (!data.access_token) {
-    console.error('❌ Failed to fetch access token:', data);
+    console.error('Failed to fetch access token:', data);
     throw new Error('Failed to get access token from Amadeus');
   }
 
@@ -45,7 +44,7 @@ const getToken = async () => {
 app.post('/recommendations', async (req, res) => {
   try {
     const { city } = req.body;
-    console.log('📍 Received city:', city);
+    console.log('Received city:', city);
 
     if (!city) {
       return res.status(400).json({ error: 'City name is required' });
@@ -58,7 +57,7 @@ app.post('/recommendations', async (req, res) => {
       headers: { Authorization: `Bearer ${token}` },
     });
     const cityData = await cityRes.json();
-    console.log('🌍 City API response:', cityData);
+    console.log(' City API response:', cityData);
 
     if (!cityData.data || cityData.data.length === 0) {
       return res.status(404).json({ error: 'City not found' });
@@ -73,18 +72,18 @@ app.post('/recommendations', async (req, res) => {
       headers: { Authorization: `Bearer ${token}` },
     });
     const activitiesData = await activitiesRes.json();
-    console.log('🎯 Activities API response:', activitiesData);
+    console.log(' Activities API response:', activitiesData);
 
     res.json({
       city: cityData.data[0].name,
       activities: activitiesData,
     });
   } catch (error) {
-    console.error('❌ Error in /recommendations:', error.stack || error);
+    console.error('Error in /recommendations:', error.stack || error);
     res.status(500).json({ error: 'Failed to fetch recommendations' });
   }
 });
 
 // Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
+const PORT = process.env.PORT ||  5500;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
