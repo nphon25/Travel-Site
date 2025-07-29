@@ -1,4 +1,3 @@
-
 import express from 'express';
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
@@ -18,8 +17,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('../public'));
 
-// Fetch OAuth token from Amadeus
+let cachedToken = null;
+let tokenExpiry = 0;
+
+// Fetch OAuth token with caching
 const getToken = async () => {
+  const now = Date.now();
+  if (cachedToken && now < tokenExpiry) {
+    return cachedToken;
+  }
+
   const response = await fetch('https://test.api.amadeus.com/v1/security/oauth2/token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -37,27 +44,27 @@ const getToken = async () => {
     throw new Error('Failed to get access token from Amadeus');
   }
 
-  return data.access_token;
+  cachedToken = data.access_token;
+  tokenExpiry = now + data.expires_in * 1000 - 60000; // Renew 1 min before expiry
+
+  return cachedToken;
 };
 
-// Handle recommendations request
 app.post('/recommendations', async (req, res) => {
   try {
-    const { city } = req.body;
-    console.log('Received city:', city);
+    const { city, budget, weather, activities, startDate, endDate, distance } = req.body;
 
-    if (!city) {
-      return res.status(400).json({ error: 'City name is required' });
+    if (!city || !budget || !weather || !startDate || !endDate || !distance) {
+      return res.status(400).json({ error: 'Missing required fields' });
     }
 
     const token = await getToken();
 
-    // Step 1: Get geo coordinates of city
+    // Get city geo coordinates
     const cityRes = await fetch(`https://test.api.amadeus.com/v1/reference-data/locations?keyword=${encodeURIComponent(city)}&subType=CITY`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     const cityData = await cityRes.json();
-    console.log(' City API response:', cityData);
 
     if (!cityData.data || cityData.data.length === 0) {
       return res.status(404).json({ error: 'City not found' });
@@ -67,16 +74,32 @@ app.post('/recommendations', async (req, res) => {
     const lat = location.latitude;
     const lng = location.longitude;
 
-    // Step 2: Fetch activities based on location
-    const activitiesRes = await fetch(`https://test.api.amadeus.com/v1/shopping/activities?latitude=${lat}&longitude=${lng}&radius=10`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    // Compose activity query params for filtering if possible (Amadeus API may not support all filters directly)
+    // We'll pass radius=distance (km)
+    const activitiesRes = await fetch(
+      `https://test.api.amadeus.com/v1/shopping/activities?latitude=${lat}&longitude=${lng}&radius=${distance}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
     const activitiesData = await activitiesRes.json();
-    console.log(' Activities API response:', activitiesData);
+
+    // Filter activities by user interests if possible (basic keyword matching)
+    let filteredActivities = activitiesData.data || [];
+    if (Array.isArray(activities) && activities.length > 0) {
+      filteredActivities = filteredActivities.filter(act =>
+        activities.some(userAct =>
+          act.name.toLowerCase().includes(userAct.toLowerCase())
+        )
+      );
+    }
+
+    // You can extend filtering by budget or weather here if API supports or with your own logic
 
     res.json({
       city: cityData.data[0].name,
-      activities: activitiesData,
+      activities: filteredActivities,
+      userPreferences: { budget, weather, startDate, endDate, distance, activities },
     });
   } catch (error) {
     console.error('Error in /recommendations:', error.stack || error);
@@ -84,6 +107,5 @@ app.post('/recommendations', async (req, res) => {
   }
 });
 
-// Start server
-const PORT = process.env.PORT ||  5500;
+const PORT = process.env.PORT || 5500;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
