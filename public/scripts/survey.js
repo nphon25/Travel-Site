@@ -6,58 +6,50 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     const city = document.getElementById('city').value.trim();
-    const budget = parseFloat(document.getElementById('budget').value);
-    const weather = document.getElementById('weather').value;
-    const startDate = document.getElementById('startDate').value;
-    const endDate = document.getElementById('endDate').value;
-    const distance = parseInt(document.getElementById('distance').value, 10);
-
-    // Get checked activities as array
-    const activities = Array.from(document.querySelectorAll('input[name="activities"]:checked')).map(el => el.value);
-
-    if (!city || !budget || !weather || !startDate || !endDate || !distance) {
-      alert('Please fill in all required fields.');
+    if (!city) {
+      alert('Please enter a city name.');
       return;
     }
 
-    if (new Date(startDate) > new Date(endDate)) {
-      alert('Start date must be before end date.');
-      return;
-    }
-
-    resultsDiv.textContent = 'Loading...';
+    resultsDiv.innerHTML = '<p>Loading recommendations...</p>';
 
     try {
       const response = await fetch('/api/recommendations', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ city }),
-});
-/*
-      const response = await fetch('http://localhost:5500/recommendations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ city, budget, weather, activities, startDate, endDate, distance }),
-      });*/
+        body: JSON.stringify({ city }),
+      });
+
+      const contentType = response.headers.get('content-type');
 
       if (!response.ok) {
-        const err = await response.json();
-        throw new Error(err.error || 'Network response was not ok');
+        // Attempt to read error body
+        const errorText = await response.text();
+        throw new Error(`Server error ${response.status}: ${errorText}`);
+      }
+
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Invalid server response (expected JSON)');
       }
 
       const data = await response.json();
 
       resultsDiv.innerHTML = `<h3>Activities in ${data.city}:</h3>`;
 
-      if (data.activities && data.activities.length > 0) {
-        data.activities.forEach(act => {
+      if (
+        data.activities &&
+        Array.isArray(data.activities.data) &&
+        data.activities.data.length > 0
+      ) {
+        data.activities.data.forEach((act) => {
           resultsDiv.innerHTML += `<p>• ${act.name}</p>`;
         });
       } else {
-        resultsDiv.innerHTML += `<p>No activities found matching your preferences.</p>`;
+        resultsDiv.innerHTML += `<p>No activities found for this city.</p>`;
       }
     } catch (error) {
-      resultsDiv.textContent = 'Failed to get recommendations: ' + error.message;
+      console.error('Recommendation error:', error);
+      resultsDiv.innerHTML = `<p style="color:red;">Failed to get recommendations: ${error.message}</p>`;
     }
   });
 });

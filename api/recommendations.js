@@ -1,5 +1,3 @@
-import fetch from 'node-fetch';
-
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -8,7 +6,7 @@ export default async function handler(req, res) {
   const { CLIENT_ID, CLIENT_SECRET } = process.env;
 
   if (!CLIENT_ID || !CLIENT_SECRET) {
-    return res.status(500).json({ error: 'Missing Amadeus credentials' });
+    return res.status(500).json({ error: 'Missing Amadeus credentials in environment variables' });
   }
 
   try {
@@ -18,7 +16,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'City is required' });
     }
 
-    // Get OAuth token
+    // Get access token
     const tokenRes = await fetch('https://test.api.amadeus.com/v1/security/oauth2/token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -33,13 +31,17 @@ export default async function handler(req, res) {
     const token = tokenData.access_token;
 
     if (!token) {
-      return res.status(500).json({ error: 'Failed to get access token' });
+      return res.status(500).json({ error: 'Failed to get access token from Amadeus' });
     }
 
     // Get city geolocation
-    const cityRes = await fetch(`https://test.api.amadeus.com/v1/reference-data/locations?keyword=${encodeURIComponent(city)}&subType=CITY`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const cityRes = await fetch(
+      `https://test.api.amadeus.com/v1/reference-data/locations?keyword=${encodeURIComponent(city)}&subType=CITY`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+
     const cityData = await cityRes.json();
 
     if (!cityData.data || cityData.data.length === 0) {
@@ -51,19 +53,21 @@ export default async function handler(req, res) {
     const lng = location.longitude;
 
     // Get activities
-    const activitiesRes = await fetch(`https://test.api.amadeus.com/v1/shopping/activities?latitude=${lat}&longitude=${lng}&radius=10`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const activitiesRes = await fetch(
+      `https://test.api.amadeus.com/v1/shopping/activities?latitude=${lat}&longitude=${lng}&radius=10`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
 
     const activitiesData = await activitiesRes.json();
 
-    res.status(200).json({
+    return res.status(200).json({
       city: cityData.data[0].name,
       activities: activitiesData,
     });
-
-  } catch (error) {
-    console.error('Serverless error:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+  } catch (err) {
+    console.error('API Error:', err.stack || err);
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 }
