@@ -28,11 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsDiv.textContent = 'Loading...';
 
     try {
+      const response = await fetch('/api/recommendations', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ city }),
+});
+/*
       const response = await fetch('http://localhost:5500/recommendations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ city, budget, weather, activities, startDate, endDate, distance }),
-      });
+      });*/
 
       if (!response.ok) {
         const err = await response.json();
@@ -55,3 +61,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
