@@ -1,153 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sicily</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sicily - Travelspiria</title>
+
+  <!-- Materialize CSS & Google Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Trebuchet+MS&display=swap" rel="stylesheet" />
-  <!-- Materialize CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="styles/destinations.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" />
+  <link href="styles/main.css" rel="stylesheet" />
+  <link href="styles/sicily.css" rel="stylesheet" />
 </head>
+<body class="sicily-page">
 
-<body>
+  <!-- Navigation -->
+  <header class="top-nav-space">
+    <nav class="top-nav white z-depth-1">
+      <div class="nav-wrapper container">
+        <a href="index.html" class="brand-logo left">Travelspiria</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+  </header>
 
-<h1>Sicily</h1>
+  <!-- Hero Banner -->
+  <div class="banner-container">
+    <img src="images/destination/sicily-banner.jpg" alt="Sicily Banner" class="responsive-img banner-image" />
+    <div class="banner-overlay center-align">
+      <h1 class="white-text">Sicily</h1>
+      <p class="white-text flow-text">A Mediterranean mosaic of history, flavor, and adventure</p>
+    </div>
+  </div>
 
-    <hr>
-
-    
-        <!--Image and description of destination-->
-       <img src="destination-images/sicily-banner.jpg" class="responsive-img banner">
-
+  <!-- Overview Section -->
+  <section class="section white">
     <div class="container">
-        <p>
-            Sicily is the largest island in the Mediterranean Sea and part of southern Italy, 
-            located just off the “toe” of the Italian boot. 
-            It has a population of about 5 million people and its capital city is Palermo. 
-            The island is home to Mount Etna, one of the most active volcanoes in the world, and features a rich mix of cultures thanks to centuries of Greek, 
-            Roman, Arab, and Norman influence.
-            With over 600 miles of coastline, delicious local dishes like arancini and cannoli, and historic sites like the Valley of the Temples, 
-            Sicily has something for everyone. Enjoy the food, visit a museum, or just take it easy at the beach.
-        </p>
+      <h4 class="section-title">About Sicily</h4>
+      <p class="flow-text">
+        Sicily, the soul of the Mediterranean, invites you into a vibrant tale woven with Greek legends, Roman grandeur, and volcanic drama. 
+        From the smoldering slopes of Mount Etna to the serene beaches of Cefalù, each corner is a story, every bite a legacy.
+      </p>
+      <p class="flow-text">
+        This island isn’t just a destination—it’s a layered experience of history, cuisine, landscapes, and people. 
+        Whether you're sipping Nero d’Avola on a sun-drenched terrace or wandering the Valley of the Temples at sunset, Sicily stirs something ancient within.
+      </p>
     </div>
-    
-    <hr>
-<!--Attractions-->
-    <div class="row">
-    <h2 class="center-align">Attractions</h2>
-        <div class="col s12 m4">
-        <div class="card">
-            <div class="card-image">
-            <img src="destination-images/mount-etna.jpg">
-            <span class="card-title">Mount Etna</span>
-            </div>
-            <div class="card-content">
-            <p>Located on Sicily's eastern coast near the city of Catania,
-             Mount Etna is Europe's tallest and most active volcano. 
-             Visitors can hike its trails or take a cable car to witness its sights,
-             including ancient lava flows and a view of the Mediterranean Sea. </p>
-            </div>
-        </div>
-        </div>
-    
+  </section>
 
-  
-        <div class="col s12 m4">
-        <div class="card">
-            <div class="card-image">
-            <img src="destination-images/valle-dei-templi.jpg">
-            <span class="card-title">Valle dei Templi</span>
-            </div>
-            <div class="card-content">
-            <p>The Valle dei Templi, located in Agrigento, Sicily, is one of the largest and most important archaeological sites in Europe.
-                 A UNESCO World Heritage site, it features well-preserved Doric temples dating back to the 5th century BC, including the Temple of Concordia,
-                  one of the best-preserved ancient Greek temples in the world.
-                 The site spans approximately 1,300 hectares and offers insight into the architecture and culture of ancient Magna Graecia.</p>
-            </div>
-        </div>
-        </div>
-    
+  <!-- Top Attractions -->
+  <section class="section green lighten-5">
+    <div class="container">
+      <h4 class="section-title center-align">Top Attractions</h4>
+      <div class="row">
 
-    
+        <!-- Mount Etna -->
         <div class="col s12 m4">
-        <div class="card">
+          <div class="card hoverable">
             <div class="card-image">
-            <img src="destination-images/theatre-taormina.jpg">
-            <span class="card-title">Ancient Theatre of Taormina</span>
+              <img src="images/destination/mount-etna.jpg" alt="Mount Etna" />
+              <span class="card-title">Mount Etna</span>
             </div>
             <div class="card-content">
-            <p>The Ancient Theatre of Taormina is a well-preserved Greco-Roman amphitheater located on Sicily’s eastern coast.
-                 Originally built by the Greeks in the 3rd century BC and later expanded by the Romans, it could hold up to 5,000 spectators.
-                  The theater was used for dramatic performances and gladiatorial games, and it remains in use today for concerts and cultural events.
-                 Set on a hillside, it offers panoramic views of the Ionian Sea and Mount Etna, making it one of Sicily’s most iconic historical landmarks.</p>
+              <p>Europe’s tallest volcano offers thrilling hikes, lunar landscapes, and views that stretch beyond the Ionian coast.</p>
             </div>
+          </div>
         </div>
+
+        <!-- Valley of the Temples -->
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="images/destination/valle-dei-templi.jpg" alt="Valle dei Templi" />
+              <span class="card-title">Valle dei Templi</span>
+            </div>
+            <div class="card-content">
+              <p>Step into antiquity at Agrigento’s ancient cityscape—an open-air museum of Doric columns and golden ruins.</p>
+            </div>
+          </div>
         </div>
+
+        <!-- Theatre of Taormina -->
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="images/destination/theatre-taormina.jpg" alt="Taormina Theatre" />
+              <span class="card-title">Taormina Theatre</span>
+            </div>
+            <div class="card-content">
+              <p>This cliffside Greco-Roman amphitheater hosts timeless performances with Mount Etna as your backdrop.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-        <!--Accomodations and dining-->
-       <div class="row">
-    <h2 class="center-align">Accomodations and Dining</h2>
+  <!-- Accommodations and Dining -->
+  <section class="section white">
+    <div class="container">
+      <h4 class="section-title center-align">Stay & Savor</h4>
+      <div class="row">
+
+        <!-- Corsaro Etna Hotel -->
         <div class="col s12 m4">
-        <div class="card">
+          <div class="card hoverable">
             <div class="card-image">
-            <img src="destination-images/corsaro-hotel.jpg">
-            <span class="card-title">Corsaro Etna Hotel & Spa</span>
+              <img src="images/destination/corsaro-hotel.jpg" alt="Corsaro Etna Hotel" />
+              <span class="card-title">Corsaro Etna Hotel</span>
             </div>
             <div class="card-content">
-            <p>Corsaro Etna Hotel & Spa is located 2,000 meters high on Mount Etna.
-                Sitting 300m from the cable car and ski-lift, it is an excellent place to stay for excursions to
-            the top of the mountain and winter sports activities. The hotel features 17 rooms, all coming with amenities such as sattelite TV
-        and private bathrooms, and terraces overlooking the Gulf of Catania. </p>
+              <p>2,000m up Mount Etna, this boutique stay offers cozy mountain comfort and unbeatable access to volcano adventures.</p>
             </div>
-        </div>
-        </div>
-    
-        <div class="col s12 m4">
-        <div class="card">
-            <div class="card-image">
-            <img src="destination-images/rifugio-sapienza.jpg">
-            <span class="card-title">Rifugio Sapienza</span>
-            </div>
-            <div class="card-content">
-            <p>Rifugio Sapienza is a 3-star hotel located at 1,910 meters on Mount Etna’s southern slope, just steps from the cable car and ski lifts.
-                 Blending alpine charm with modern comfort, the hotel offers 24 rooms equipped with private bathrooms, TVs, free Wi-Fi,
-                  and many with mountain views or terraces. Guests can enjoy a buffet breakfast, on-site restaurant and pizzeria, bar, and free parking.
-                 With direct access to hiking trails and ski areas, it serves as an ideal base for exploring Etna year-round.
-            </p>
-            </div>
-        </div>
-        </div>
-  
-        <div class="col s12 m4">
-        <div class="card">
-            <div class="card-image">
-            <img src="destination-images/ristorante-cantoniera.jpg">
-            <span class="card-title">Ristorante Cantoniera</span>
-            </div>
-            <div class="card-content">
-            <p>Sitting at the base of Mount Etna, this restaurant offers a variety of local Italian dishes and the opportunity
-                for free tastings before you leave.
-            </p>
-            </div>
-        </div>
+          </div>
         </div>
 
+        <!-- Rifugio Sapienza -->
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="images/destination/rifugio-sapienza.jpg" alt="Rifugio Sapienza" />
+              <span class="card-title">Rifugio Sapienza</span>
+            </div>
+            <div class="card-content">
+              <p>Rustic charm meets alpine ease in this high-altitude hideaway near ski lifts and crater walks.</p>
+            </div>
+          </div>
+        </div>
 
+        <!-- Ristorante Cantoniera -->
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="images/destination/ristorante-cantoniera.jpg" alt="Ristorante Cantoniera" />
+              <span class="card-title">Cantoniera</span>
+            </div>
+            <div class="card-content">
+              <p>Stop in for hearty portions of authentic Sicilian food—local wines, fresh pastas, and smoky grilled meats await.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </section>
 
+  <!-- Tailored Experiences -->
+  <section class="section green lighten-5">
+    <div class="container">
+      <h4 class="section-title center-align">Tailored Experiences</h4>
+      <p class="center-align flow-text">Sicily adapts to your rhythm—whether you're traveling light, bonding as a family, or sealing a business deal over wine and ruins.</p>
+      <div class="row">
 
+        <!-- Solo Travel -->
+        <div class="col s12 m3">
+          <div class="card hoverable center-align">
+            <div class="card-content">
+              <i class="material-icons large green-text text-darken-2">person</i>
+              <h5>Solo</h5>
+              <p>Wander freely through ancient cities, join cooking classes, or journal by the sea. Sicily embraces the introspective traveler.</p>
+            </div>
+          </div>
+        </div>
 
-    <footer>
-        <div data-include="components/Dfooter.html"></div>
-    </footer>
-        <script src="scripts/HTMLInclude.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="scripts/main.js"></script>
+        <!-- Group Travel -->
+        <div class="col s12 m3">
+          <div class="card hoverable center-align">
+            <div class="card-content">
+              <i class="material-icons large green-text text-darken-2">groups</i>
+              <h5>Groups</h5>
+              <p>From vineyard tours to guided hikes, Sicily’s rich culture comes alive in shared experiences with friends or fellow explorers.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Family Travel -->
+        <div class="col s12 m3">
+          <div class="card hoverable center-align">
+            <div class="card-content">
+              <i class="material-icons large green-text text-darken-2">family_restroom</i>
+              <h5>Family</h5>
+              <p>Interactive museums, beach days, and family-run trattorias ensure fun and flavor for travelers of all ages.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Travel -->
+        <div class="col s12 m3">
+          <div class="card hoverable center-align">
+            <div class="card-content">
+              <i class="material-icons large green-text text-darken-2">work</i>
+              <h5>Business</h5>
+              <p>With conference spaces, boutique hotels, and impressive venues, Sicily is perfect for mixing business with Mediterranean pleasure.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer data-include="components/Dfooter.html"></footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/HTMLInclude.min.js"></script>
+
 </body>
-
 </html>
