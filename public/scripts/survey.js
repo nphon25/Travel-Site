@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultsSection = document.getElementById('results');
   const submitBtn = form.querySelector('button[type="submit"]');
 
+  // Initialize Materialize components
+  const selects = document.querySelectorAll('select');
+  M.FormSelect.init(selects);
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -11,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const budget = form.budget.value;
     const weather = form.weather.value;
 
-    // Get all checked activity checkboxes
     const selectedActivities = Array.from(
       form.querySelectorAll('input[name="activities"]:checked')
     ).map(input => input.value);
@@ -20,25 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const endDate = form.endDate.value;
     const distance = form.distance.value;
 
-    // Validate required fields and at least one activity
-    if (
-      !city || !budget || !weather ||
-      selectedActivities.length === 0 ||
-      !startDate || !endDate || !distance
-    ) {
-      alert('Please fill out all required fields and select at least one activity.');
+    // Validation
+    if (!city || !budget || !weather || selectedActivities.length === 0 || !startDate || !endDate || !distance) {
+      M.toast({ html: 'Please complete all fields and select at least one activity.', classes: 'red darken-1' });
       return;
     }
 
-    // Validate date logic
     if (new Date(startDate) > new Date(endDate)) {
-      alert('Start Date cannot be after End Date.');
+      M.toast({ html: 'Start Date cannot be after End Date.', classes: 'orange darken-2' });
       return;
     }
 
-    // Disable submit to prevent duplicate requests
     submitBtn.disabled = true;
-    resultsSection.innerHTML = '<p>Loading recommendations...</p>';
+    resultsSection.innerHTML = '<div class="progress"><div class="indeterminate"></div></div>';
 
     try {
       const response = await fetch('/recommendations', {
@@ -63,19 +60,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (data.activities && data.activities.length > 0) {
         resultsSection.innerHTML = `
-          <h3>Recommended Activities in ${data.city}</h3>
-          <ul>
-            ${data.activities.map(act => `<li>${act.name}</li>`).join('')}
+          <h4 class="green-text text-darken-2">Recommended Activities in ${data.city}</h4>
+          <ul class="collection">
+            ${data.activities.map(act => `<li class="collection-item">${act.name}</li>`).join('')}
           </ul>
         `;
       } else {
         resultsSection.innerHTML = '<p>No activities found matching your preferences.</p>';
       }
     } catch (error) {
-      console.error('Fetch error:', error);
-      resultsSection.innerHTML = '<p>Error fetching recommendations. Please try again later.</p>';
+      console.error(error);
+      resultsSection.innerHTML = '<p class="red-text">Error fetching recommendations. Please try again later.</p>';
     } finally {
-      // Re-enable submit button
       submitBtn.disabled = false;
     }
   });

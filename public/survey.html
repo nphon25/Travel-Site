@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Travelspiria</title>
-
+  <title>TravelSpiria</title>
   <!-- Fonts & CSS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Trebuchet+MS&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
   <link rel="stylesheet" href="styles/index.css" />
-  <link rel="stylesheet" href="styles/main.css" />
 </head>
 
  <body>
@@ -43,14 +41,26 @@
       </div>
 
       <!-- Activities -->
-      <fieldset class="form-group activities-group" required>
-        <legend>Activities you like (select at least one):</legend>
-        <label><input type="checkbox" name="activities" value="Beach" /> Beach</label>
-        <label><input type="checkbox" name="activities" value="Hiking" /> Hiking</label>
-        <label><input type="checkbox" name="activities" value="Culture" /> Culture</label>
-        <label><input type="checkbox" name="activities" value="Shopping" /> Shopping</label>
-        <label><input type="checkbox" name="activities" value="Nightlife" /> Nightlife</label>
-      </fieldset>
+       <div class="form-group">
+  <label>Activities you like (select at least one):</label>
+  <p>
+    <label><input type="checkbox" name="activities" value="Beach" /><span>Beach</span></label>
+  </p>
+  <p>
+    <label><input type="checkbox" name="activities" value="Hiking" /><span>Hiking</span></label>
+  </p>
+  <p>
+    <label><input type="checkbox" name="activities" value="Culture" /><span>Culture</span></label>
+  </p>
+  <p>
+    <label><input type="checkbox" name="activities" value="Shopping" /><span>Shopping</span></label>
+  </p>
+  <p>
+    <label><input type="checkbox" name="activities" value="Nightlife" /><span>Nightlife</span></label>
+  </p>
+</div>
+
+
 
       <!-- Travel Dates -->
       <div class="form-group">
@@ -98,10 +108,6 @@
 
     <section id="results" aria-live="polite" style="margin-top: 2rem;"></section>
   </main>
-
-  <script src="survey.js"></script>
-</body>
-
 
 
   <!-- Scripts -->
