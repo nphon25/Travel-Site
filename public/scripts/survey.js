@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsSection.innerHTML = '<div class="progress"><div class="indeterminate"></div></div>';
 
     try {
-      //const response = await fetch('/api/recommendations', {
       const response = await fetch('/api/recommendations', {
 
         method: 'POST',
