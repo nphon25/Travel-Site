@@ -1,27 +1,29 @@
 {
-  "name": "travel-site",
+  "name": "travel-site-backend",
   "version": "1.0.0",
-  "description": "collaborate in groups of five or six to create a  travel website that aims to rival industry leaders like Trip Advisor, Airbnb and Lonely Planet. The website will focus on aiding in destination exploration, trip planning, and activity discovery. Develop a user-centric platform and effectively, using Design Thinking techniques while leveraging Git and Github throughout the process.",
+  "description": "Backend server for Travel Site recommendations",
+  "type": "module",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nphon25/Travel-Site.git"
-  },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "travel",
+    "recommendations",
+    "amadeus",
+    "api",
+    "express",
+    "node"
+  ],
+  "author": "Your Name",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nphon25/Travel-Site/issues"
-  },
-  "homepage": "https://github.com/nphon25/Travel-Site#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^17.2.1",
-    "express": "^5.1.0",
-    "node-fetch": "^3.3.2"
+    "dotenv": "^16.3.1",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
