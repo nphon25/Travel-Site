@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('surveyForm');
   const resultsSection = document.getElementById('results');
+  const submitBtn = form.querySelector('button[type="submit"]');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const budget = form.budget.value;
     const weather = form.weather.value;
 
-    // ✅ Get all checked activity checkboxes
+    // Get all checked activity checkboxes
     const selectedActivities = Array.from(
       form.querySelectorAll('input[name="activities"]:checked')
     ).map(input => input.value);
@@ -35,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    // Disable submit to prevent duplicate requests
+    submitBtn.disabled = true;
     resultsSection.innerHTML = '<p>Loading recommendations...</p>';
 
     try {
@@ -69,8 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsSection.innerHTML = '<p>No activities found matching your preferences.</p>';
       }
     } catch (error) {
-      console.error(error);
+      console.error('Fetch error:', error);
       resultsSection.innerHTML = '<p>Error fetching recommendations. Please try again later.</p>';
+    } finally {
+      // Re-enable submit button
+      submitBtn.disabled = false;
     }
   });
 });

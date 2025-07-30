@@ -13,65 +13,96 @@
   <link rel="stylesheet" href="styles/main.css" />
 </head>
 
-<body>
-  <div class="container survey-page">
-    <h1>Get Personalized Trip Recommendations</h1>
+ <body>
+  <main class="container">
+    <h1>Travel Destination Recommender</h1>
+    <p>Fill out the form below to get personalized travel recommendations!</p>
 
-    <form id="survey-form">
+    <form id="surveyForm" class="grid-form" novalidate>
+      <!-- Budget -->
       <div class="form-group">
-        <label for="budget">Budget ($USD per day):</label>
-        <input type="number" id="budget" name="budget" min="0" placeholder="e.g. 100" required />
+        <label for="budget">Budget</label>
+        <select id="budget" name="budget" required>
+          <option value="" disabled selected>Select your budget</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
       </div>
 
+      <!-- Preferred Weather -->
       <div class="form-group">
-        <label for="weather">Preferred Weather:</label>
+        <label for="weather">Preferred Weather</label>
         <select id="weather" name="weather" required>
-          <option value="" disabled selected>Select weather</option>
+          <option value="" disabled selected>Select weather preference</option>
           <option value="sunny">Sunny</option>
           <option value="rainy">Rainy</option>
-          <option value="cold">Cold</option>
+          <option value="snowy">Snowy</option>
           <option value="mild">Mild</option>
         </select>
       </div>
 
-      <div class="form-group">
-        <label>Activities you like:</label>
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="activities" value="beach" /> Beach</label>
-          <label><input type="checkbox" name="activities" value="hiking" /> Hiking</label>
-          <label><input type="checkbox" name="activities" value="culture" /> Culture</label>
-          <label><input type="checkbox" name="activities" value="shopping" /> Shopping</label>
-          <label><input type="checkbox" name="activities" value="nightlife" /> Nightlife</label>
-        </div>
-      </div>
+      <!-- Activities -->
+      <fieldset class="form-group activities-group" required>
+        <legend>Activities you like (select at least one):</legend>
+        <label><input type="checkbox" name="activities" value="Beach" /> Beach</label>
+        <label><input type="checkbox" name="activities" value="Hiking" /> Hiking</label>
+        <label><input type="checkbox" name="activities" value="Culture" /> Culture</label>
+        <label><input type="checkbox" name="activities" value="Shopping" /> Shopping</label>
+        <label><input type="checkbox" name="activities" value="Nightlife" /> Nightlife</label>
+      </fieldset>
 
+      <!-- Travel Dates -->
       <div class="form-group">
-        <label for="startDate">Travel Start Date:</label>
+        <label for="startDate">Start Date</label>
         <input type="date" id="startDate" name="startDate" required />
       </div>
 
       <div class="form-group">
-        <label for="endDate">Travel End Date:</label>
+        <label for="endDate">End Date</label>
         <input type="date" id="endDate" name="endDate" required />
       </div>
 
+      <!-- Distance -->
       <div class="form-group">
-        <label for="distance">Max Distance from city center (km):</label>
-        <input type="number" id="distance" name="distance" min="1" max="100" placeholder="e.g. 10" required />
+        <label for="distance">Max Distance (km)</label>
+        <input
+          type="number"
+          id="distance"
+          name="distance"
+          min="1"
+          max="1000"
+          placeholder="e.g., 50"
+          required
+        />
       </div>
 
+      <!-- City -->
       <div class="form-group">
-        <label for="city">Enter a city name:</label>
-        <input type="text" id="city" name="city" placeholder="e.g. Paris" required />
+        <label for="city">City (starting point)</label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          placeholder="Enter city name"
+          required
+          autocomplete="off"
+        />
       </div>
 
-      <button type="submit">Get Recommendations</button>
+      <!-- Submit -->
+      <div class="form-group full-width">
+        <button type="submit" class="btn">Get Recommendations</button>
+      </div>
     </form>
 
-    <div id="results"></div>
-  </div>
+    <section id="results" aria-live="polite" style="margin-top: 2rem;"></section>
+  </main>
 
-  <footer data-include="components/Dfooter.html"></footer>
+  <script src="survey.js"></script>
+</body>
+
+
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

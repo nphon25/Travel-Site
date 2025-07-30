@@ -1,24 +1,97 @@
-/* Specific to the survey page form only */
-.container.survey-page {
-  background-color: #fafafa;
-  padding: 2rem 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+#surveyForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+  max-width: 700px;
+  margin: 2rem auto;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
-/* Optional: Slight margin tweaks without overriding form-group spacing */
-#survey-form .form-group {
-  margin-bottom: 1.25rem;
+/* Make full-width elements span both columns */
+#surveyForm .full-width {
+  grid-column: 1 / -1;
 }
 
-/* Custom checkbox spacing (doesn't exist in main.css) */
-.checkbox-group {
+/* Form group styling */
+#surveyForm .form-group,
+#surveyForm fieldset {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1rem;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
-/* Style for the results box (already styled in main.css, just extra polish) */
-#results {
-  background-color: #fefefe;
-  border-left: 4px solid
+/* Fieldset for activities */
+#surveyForm fieldset.activities-group {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+/* Legend styling */
+#surveyForm fieldset.activities-group legend {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Checkbox label spacing */
+#surveyForm fieldset.activities-group label {
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Inputs and selects */
+#surveyForm input[type="text"],
+#surveyForm input[type="date"],
+#surveyForm input[type="number"],
+#surveyForm select {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+  outline-offset: 2px;
+}
+
+/* Focus states */
+#surveyForm input[type="text"]:focus,
+#surveyForm input[type="date"]:focus,
+#surveyForm input[type="number"]:focus,
+#surveyForm select:focus {
+  border-color: #657a42; /* green accent */
+  box-shadow: 0 0 5px rgba(101, 122, 66, 0.5);
+  outline: none;
+}
+
+/* Submit button */
+#surveyForm button.btn {
+  background-color: #657a42;
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  justify-self: start;
+}
+
+#surveyForm button.btn:hover,
+#surveyForm button.btn:focus {
+  background-color: #55622a;
+  outline: none;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  #surveyForm {
+    grid-template-columns: 1fr;
+  }
+  #surveyForm .full-width {
+    grid-column: auto;
+  }
+}
