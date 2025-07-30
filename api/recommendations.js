@@ -30,10 +30,10 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Only POST method allowed' });
   }
 
-  const { city, budget, weather, activities, startDate, endDate, distance } = req.body;
+  const { city } = req.body;
 
-  if (!city || !budget || !weather || !startDate || !endDate || !distance || !Array.isArray(activities) || activities.length === 0) {
-    return res.status(400).json({ error: 'Missing required fields or activities' });
+  if (!city) {
+    return res.status(400).json({ error: 'Missing required field: city' });
   }
 
   try {
@@ -50,11 +50,23 @@ export default async function handler(req, res) {
       return res.status(404).json({ error: 'City not found' });
     }
 
-    const { latitude, longitude } = cityData.data[0].geoCode;
+    const { latitude, longitude, name: cityName } = cityData.data[0].geoCode
+      ? { 
+          latitude: cityData.data[0].geoCode.latitude, 
+          longitude: cityData.data[0].geoCode.longitude,
+          name: cityData.data[0].name
+        }
+      : {};
 
-    // 2. Fetch nearby activities
+    if (!latitude || !longitude) {
+      return res.status(404).json({ error: 'Coordinates not found for city' });
+    }
+
+    // 2. Fetch nearby activities with a default radius (e.g., 50km)
+    const radius = 50;
+
     const actRes = await fetch(
-      `https://test.api.amadeus.com/v1/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=${distance}`,
+      `https://test.api.amadeus.com/v1/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=${radius}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
 
@@ -64,14 +76,10 @@ export default async function handler(req, res) {
       return res.status(actRes.status).json({ error: actData.error || 'Failed to fetch activities' });
     }
 
-    const matchedActivities = (actData.data || []).filter(activity =>
-      activities.some(a => activity.name.toLowerCase().includes(a.toLowerCase()))
-    );
-
+    // Return all activities found without filtering since we removed activity selection
     return res.status(200).json({
-      city: cityData.data[0].name,
-      activities: matchedActivities,
-      userPreferences: { budget, weather, startDate, endDate, distance, activities },
+      city: cityName,
+      activities: actData.data || [],
     });
 
   } catch (err) {

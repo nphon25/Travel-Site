@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Gather form values
     const city = form.city.value.trim();
+    /*
     const budget = form.budget.value;
     const weather = form.weather.value;
     const selectedActivities = Array.from(
@@ -19,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ).map(input => input.value);
     const startDate = form.startDate.value;
     const endDate = form.endDate.value;
-    const distance = form.distance.value;
+    const distance = form.distance.value;*/
 
     // Validation
-    if (!city || !budget || !weather || !startDate || !endDate || !distance || selectedActivities.length === 0) {
+    if (!city) {
       M.toast({ html: 'Please complete all fields and select at least one activity.', classes: 'red darken-1' });
       return;
     }
