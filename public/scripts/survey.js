@@ -1,81 +1,80 @@
-document.addEventListener('DOMContentLoaded', () => {
-  
-  const form = document.getElementById('surveyForm');
-  const resultsSection = document.getElementById('results');
-  const submitBtn = form.querySelector('button[type="submit"]');
+let cachedToken = null;
+let tokenExpiry = 0;
 
-  // Initialize Materialize select fields
-  M.FormSelect.init(document.querySelectorAll('select'));
+const getToken = async () => {
+  const now = Date.now();
+  if (cachedToken && now < tokenExpiry) return cachedToken;
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // Gather form values
-    const city = form.city.value.trim();
-    /*
-    const budget = form.budget.value;
-    const weather = form.weather.value;
-    const selectedActivities = Array.from(
-      form.querySelectorAll('input[name="activities"]:checked')
-    ).map(input => input.value);
-    const startDate = form.startDate.value;
-    const endDate = form.endDate.value;
-    const distance = form.distance.value;*/
-
-    // Validation
-    if (!city) {
-      M.toast({ html: 'Please complete all fields and select at least one activity.', classes: 'red darken-1' });
-      return;
-    }
-
-    if (new Date(startDate) > new Date(endDate)) {
-      M.toast({ html: 'Start Date cannot be after End Date.', classes: 'orange darken-2' });
-      return;
-    }
-
-    submitBtn.disabled = true;
-    resultsSection.innerHTML = '<div class="progress"><div class="indeterminate"></div></div>';
-
-    try {
-      const response = await fetch('/api/recommendations', {
-
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          city,
-          /*
-          budget,
-          weather,
-          activities: selectedActivities,
-          startDate,
-          endDate,
-          distance: Number(distance),*/
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Server error: ${response.statusText}`);
-      }
-
-      const data = await response.json();
-
-      if (data.activities?.length) {
-        resultsSection.innerHTML = `
-          <h4 class="green-text text-darken-2">Recommended Activities in ${data.city}</h4>
-          <ul class="collection">
-            ${data.activities.map(act => `<li class="collection-item">${act.name}</li>`).join('')}
-          </ul>
-        `;
-      } else {
-        resultsSection.innerHTML = '<p>No activities found matching your preferences.</p>';
-      }
-      
-    } catch (err) {
-      console.error('Fetch error:', err);
-      resultsSection.innerHTML = '<p class="red-text">Error fetching recommendations. Please try again later.</p>';
-      
-    } finally {
-      submitBtn.disabled = false;
-    }
+  const response = await fetch('https://test.api.amadeus.com/v1/security/oauth2/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      grant_type: 'client_credentials',
+      client_id: process.env.CLIENT_ID,
+      client_secret: process.env.CLIENT_SECRET,
+    }),
   });
-});
+
+  const data = await response.json();
+  if (!response.ok || !data.access_token) {
+    throw new Error(data.error_description || 'Failed to get access token');
+  }
+
+  cachedToken = data.access_token;
+  tokenExpiry = now + (data.expires_in * 1000) - 60000;
+  return cachedToken;
+};
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Only POST method allowed' });
+  }
+
+  const { city } = req.body;
+  if (!city) {
+    return res.status(400).json({ error: 'Missing required field: city' });
+  }
+
+  try {
+    const token = await getToken();
+
+    const cityRes = await fetch(
+      `https://test.api.amadeus.com/v1/reference-data/locations?keyword=${encodeURIComponent(city)}&subType=CITY`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+
+    const cityData = await cityRes.json();
+
+    if (!cityRes.ok || !cityData.data?.length) {
+      return res.status(404).json({ error: 'City not found' });
+    }
+
+    const location = cityData.data[0];
+    const latitude = location.geoCode?.latitude;
+    const longitude = location.geoCode?.longitude;
+    const cityName = location.name;
+
+    if (!latitude || !longitude) {
+      return res.status(404).json({ error: 'Coordinates not found for city' });
+    }
+
+    const actRes = await fetch(
+      `https://test.api.amadeus.com/v1/shopping/activities?latitude=${latitude}&longitude=${longitude}&radius=50`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+
+    const actData = await actRes.json();
+    if (!actRes.ok) {
+      return res.status(actRes.status).json({ error: actData.error || 'Failed to fetch activities' });
+    }
+
+    return res.status(200).json({
+      city: cityName,
+      activities: actData.data || [],
+    });
+
+  } catch (err) {
+    console.error('API error:', err);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+}
