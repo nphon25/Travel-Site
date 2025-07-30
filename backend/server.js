@@ -19,7 +19,7 @@ app.use(express.static('../public'));
 
 let cachedToken = null;
 let tokenExpiry = 0;
-
+console.log('log');
 // Fetch OAuth token with caching
 const getToken = async () => {
   const now = Date.now();
