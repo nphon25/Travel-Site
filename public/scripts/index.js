@@ -2,15 +2,15 @@ document.addEventListener('DOMContentLoaded', function () {
   // Materialize Carousel Init
   const elems = document.querySelectorAll('.carousel.carousel-slider');
   const instances = M.Carousel.init(elems, {
-    fullWidth: true,
+    fullWidth: true, // full width 
     indicators: true,
   });
 
   // Auto-slide carousel
   if (instances.length > 0) {
     setInterval(() => {
-      instances[0].next();
-    }, 5000);
+      instances[0].next(); // slide next 
+    }, 5000);//5sec
   }
 
   // Materialbox Init
