@@ -20,6 +20,7 @@ app.use(express.static('../public'));
 let cachedToken = null;
 let tokenExpiry = 0;
 
+// Fetch OAuth token with caching
 const getToken = async () => {
   const now = Date.now();
   if (cachedToken && now < tokenExpiry) {
@@ -91,4 +92,45 @@ app.post('/recommendations', async (req, res) => {
       return res.status(404).json({ error: 'City not found' });
     }
 
-    const { latitude: lat, longitude: lng } = cityData.data[0].geoCo
+    const { latitude: lat, longitude: lng } = cityData.data[0].geoCode;
+
+    // Fetch activities near the city
+    const activitiesRes = await fetch(
+      `https://test.api.amadeus.com/v1/shopping/activities?latitude=${lat}&longitude=${lng}&radius=${distance}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+
+    if (!activitiesRes.ok) {
+      const errData = await activitiesRes.json();
+      return res.status(activitiesRes.status).json({ error: errData.error || 'Failed to fetch activities' });
+    }
+
+    const activitiesData = await activitiesRes.json();
+
+    // Filter activities by user interests (case-insensitive)
+    let filteredActivities = activitiesData.data || [];
+    if (activities.length > 0) {
+      filteredActivities = filteredActivities.filter(act =>
+        activities.some(userAct =>
+          act.name.toLowerCase().includes(userAct.toLowerCase())
+        )
+      );
+    }
+
+    // TODO: You can extend filtering by budget or weather if API supports or add your own logic here.
+
+    res.json({
+      city: cityData.data[0].name,
+      activities: filteredActivities,
+      userPreferences: { budget, weather, startDate, endDate, distance, activities },
+    });
+  } catch (error) {
+    console.error('Error in /recommendations:', error.stack || error);
+    res.status(500).json({ error: 'Failed to fetch recommendations' });
+  }
+});
+
+const PORT = process.env.PORT || 5500;
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
