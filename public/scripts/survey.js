@@ -37,18 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       //const response = await fetch('/api/recommendations', {
-      const response = await fetch('https://travel-site-bice-beta.vercel.app/api/recommendations', {
+      const response = await fetch('/api/recommendations', {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           city,
+          /*
           budget,
           weather,
           activities: selectedActivities,
           startDate,
           endDate,
-          distance: Number(distance),
+          distance: Number(distance),*/
         }),
       });
 
