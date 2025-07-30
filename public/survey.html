@@ -2,86 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Trip Recommendations Survey</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    label {
-      display: block;
-      margin: 1rem 0 0.5rem;
-    }
-    input[type="text"],
-    select,
-    input[type="date"],
-    input[type="number"] {
-      width: 100%;
-      padding: 0.5rem;
-      box-sizing: border-box;
-    }
-    .checkbox-group label {
-      display: inline-block;
-      margin-right: 1rem;
-      font-weight: normal;
-    }
-    button {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-    }
-    #results {
-      margin-top: 2rem;
-      white-space: pre-wrap;
-      background: #f0f0f0;
-      padding: 1rem;
-      border-radius: 6px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Travelspiria</title>
+
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Trebuchet+MS&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link rel="stylesheet" href="styles/index.css" />
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
+
 <body>
-  <h1>Get Personalized Trip Recommendations</h1>
-  <form id="surveyForm">
-    <label for="budget">Budget ($USD per day):</label>
-    <input type="number" id="budget" name="budget" min="0" placeholder="e.g. 100" required />
+  <div class="container survey-page">
+    <h1>Get Personalized Trip Recommendations</h1>
 
-    <label for="weather">Preferred Weather:</label>
-    <select id="weather" name="weather" required>
-      <option value="" disabled selected>Select weather</option>
-      <option value="sunny">Sunny</option>
-      <option value="rainy">Rainy</option>
-      <option value="cold">Cold</option>
-      <option value="mild">Mild</option>
-    </select>
+    <form id="survey-form">
+      <div class="form-group">
+        <label for="budget">Budget ($USD per day):</label>
+        <input type="number" id="budget" name="budget" min="0" placeholder="e.g. 100" required />
+      </div>
 
-    <label>Activities you like:</label>
-    <div class="checkbox-group">
-      <label><input type="checkbox" name="activities" value="beach" /> Beach</label>
-      <label><input type="checkbox" name="activities" value="hiking" /> Hiking</label>
-      <label><input type="checkbox" name="activities" value="culture" /> Culture</label>
-      <label><input type="checkbox" name="activities" value="shopping" /> Shopping</label>
-      <label><input type="checkbox" name="activities" value="nightlife" /> Nightlife</label>
-    </div>
+      <div class="form-group">
+        <label for="weather">Preferred Weather:</label>
+        <select id="weather" name="weather" required>
+          <option value="" disabled selected>Select weather</option>
+          <option value="sunny">Sunny</option>
+          <option value="rainy">Rainy</option>
+          <option value="cold">Cold</option>
+          <option value="mild">Mild</option>
+        </select>
+      </div>
 
-    <label for="startDate">Travel Start Date:</label>
-    <input type="date" id="startDate" name="startDate" required />
+      <div class="form-group">
+        <label>Activities you like:</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="activities" value="beach" /> Beach</label>
+          <label><input type="checkbox" name="activities" value="hiking" /> Hiking</label>
+          <label><input type="checkbox" name="activities" value="culture" /> Culture</label>
+          <label><input type="checkbox" name="activities" value="shopping" /> Shopping</label>
+          <label><input type="checkbox" name="activities" value="nightlife" /> Nightlife</label>
+        </div>
+      </div>
 
-    <label for="endDate">Travel End Date:</label>
-    <input type="date" id="endDate" name="endDate" required />
+      <div class="form-group">
+        <label for="startDate">Travel Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required />
+      </div>
 
-    <label for="distance">Max Distance from city center (km):</label>
-    <input type="number" id="distance" name="distance" min="1" max="100" placeholder="e.g. 10" required />
+      <div class="form-group">
+        <label for="endDate">Travel End Date:</label>
+        <input type="date" id="endDate" name="endDate" required />
+      </div>
 
-    <label for="city">Enter a city name:</label>
-    <input type="text" id="city" name="city" placeholder="e.g. Paris" required />
+      <div class="form-group">
+        <label for="distance">Max Distance from city center (km):</label>
+        <input type="number" id="distance" name="distance" min="1" max="100" placeholder="e.g. 10" required />
+      </div>
 
-    <button type="submit">Get Recommendations</button>
-  </form>
+      <div class="form-group">
+        <label for="city">Enter a city name:</label>
+        <input type="text" id="city" name="city" placeholder="e.g. Paris" required />
+      </div>
 
-  <div id="results"></div>
+      <button type="submit">Get Recommendations</button>
+    </form>
 
+    <div id="results"></div>
+  </div>
+
+  <footer data-include="components/Dfooter.html"></footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/HTMLInclude.min.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src="scripts/main.js"></script>
   <script src="scripts/survey.js"></script>
 </body>
 </html>

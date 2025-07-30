@@ -1,0 +1,24 @@
+/* Specific to the survey page form only */
+.container.survey-page {
+  background-color: #fafafa;
+  padding: 2rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Optional: Slight margin tweaks without overriding form-group spacing */
+#survey-form .form-group {
+  margin-bottom: 1.25rem;
+}
+
+/* Custom checkbox spacing (doesn't exist in main.css) */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+/* Style for the results box (already styled in main.css, just extra polish) */
+#results {
+  background-color: #fefefe;
+  border-left: 4px solid

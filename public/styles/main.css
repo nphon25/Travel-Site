@@ -10,7 +10,7 @@ html {
 body {
     margin: 0;
     padding-bottom: 0px;
-    padding-top: 62px; /* Match your navbar height */
+    padding-top: 62px; 
 
 }
 .nav-color{
@@ -134,9 +134,9 @@ nav .brand-logo.left{
   margin-left: 10px;
   opacity: 0;
   transition: opacity 0.2s ease;
-  cursor: pointer; /* Add pointer cursor */
-  z-index: 3; /* Ensure it's above other elements */
-  position: relative; /* Needed for z-index to work */
+  cursor: pointer; 
+  z-index: 3; 
+  position: relative; 
 }
 .input-field>label{
     top: 8px;
@@ -146,8 +146,8 @@ nav .brand-logo.left{
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999; /* Ensures navbar stays above other content */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional shadow */
+  z-index: 999; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 /* Fixed Navbar */

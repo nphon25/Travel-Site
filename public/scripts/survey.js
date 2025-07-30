@@ -1,56 +1,76 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('surveyForm');
-  const resultsDiv = document.getElementById('results');
+  const resultsSection = document.getElementById('results');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const city = document.getElementById('city').value.trim();
-    if (!city) {
-      alert('Please enter a city name.');
+    // Gather form values
+    const city = form.city.value.trim();
+    const budget = form.budget.value;
+    const weather = form.weather.value;
+
+    // ✅ Get all checked activity checkboxes
+    const selectedActivities = Array.from(
+      form.querySelectorAll('input[name="activities"]:checked')
+    ).map(input => input.value);
+
+    const startDate = form.startDate.value;
+    const endDate = form.endDate.value;
+    const distance = form.distance.value;
+
+    // Validate required fields and at least one activity
+    if (
+      !city || !budget || !weather ||
+      selectedActivities.length === 0 ||
+      !startDate || !endDate || !distance
+    ) {
+      alert('Please fill out all required fields and select at least one activity.');
       return;
     }
 
-    resultsDiv.innerHTML = '<p>Loading recommendations...</p>';
+    // Validate date logic
+    if (new Date(startDate) > new Date(endDate)) {
+      alert('Start Date cannot be after End Date.');
+      return;
+    }
+
+    resultsSection.innerHTML = '<p>Loading recommendations...</p>';
 
     try {
-      const response = await fetch('/api/recommendations', {
+      const response = await fetch('/recommendations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ city }),
+        body: JSON.stringify({
+          city,
+          budget,
+          weather,
+          activities: selectedActivities,
+          startDate,
+          endDate,
+          distance: Number(distance),
+        }),
       });
 
-      const contentType = response.headers.get('content-type');
-
       if (!response.ok) {
-        // Attempt to read error body
-        const errorText = await response.text();
-        throw new Error(`Server error ${response.status}: ${errorText}`);
-      }
-
-      if (!contentType || !contentType.includes('application/json')) {
-        throw new Error('Invalid server response (expected JSON)');
+        throw new Error(`Server error: ${response.statusText}`);
       }
 
       const data = await response.json();
 
-      resultsDiv.innerHTML = `<h3>Activities in ${data.city}:</h3>`;
-
-      if (
-        data.activities &&
-        Array.isArray(data.activities.data) &&
-        data.activities.data.length > 0
-      ) {
-        data.activities.data.forEach((act) => {
-          resultsDiv.innerHTML += `<p>• ${act.name}</p>`;
-        });
+      if (data.activities && data.activities.length > 0) {
+        resultsSection.innerHTML = `
+          <h3>Recommended Activities in ${data.city}</h3>
+          <ul>
+            ${data.activities.map(act => `<li>${act.name}</li>`).join('')}
+          </ul>
+        `;
       } else {
-        resultsDiv.innerHTML += `<p>No activities found for this city.</p>`;
+        resultsSection.innerHTML = '<p>No activities found matching your preferences.</p>';
       }
     } catch (error) {
-      console.error('Recommendation error:', error);
-      resultsDiv.innerHTML = `<p style="color:red;">Failed to get recommendations: ${error.message}</p>`;
+      console.error(error);
+      resultsSection.innerHTML = '<p>Error fetching recommendations. Please try again later.</p>';
     }
   });
 });
-
